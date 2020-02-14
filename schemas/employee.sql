@@ -1,7 +1,7 @@
-drop database if exists workhubDB;
+drop database if exists GrindhubDB;
 
-create database workhubDB;
+create database GrindhubDB;
 
-use database workhubDB;
+use database GrindhubDB;
 
 create table employee; 
