@@ -1,21 +1,37 @@
 //importing all of the necessary elements from the material UI package
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(1),
+      width: theme.spacing(16),
+      height: theme.spacing(16),
+  
     },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 200,
-    },
-  }));
+  },
+}));
+
+export default function SimplePaper() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Paper elevation={3} />
+      <Paper elevation={3}/>
+      <Paper elevation={3} />
+      <Paper elevation={3} />
+    </div>
+  
+  );
+}
+
+//we will probably need minimum two rows of 4 paper elements
+
+//here are some possible material icons we could use
+
+//
