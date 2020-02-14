@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+//importing all of the necessary elements from the material UI package
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,6 +19,10 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+  //using styles to apply CSS directly
+
+  //creatin the function to render the log-in which consists of a fluid container, 
+  //two text-inputs, and a sumbission button
 export default function LoginContainer() {
     const classes = useStyles();
   return (
