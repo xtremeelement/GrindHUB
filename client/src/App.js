@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import AppHeader from "./Components/smallerComponents/AppHeader";
+
 // import Button from "@material-ui/core/Button";
 
 function App() {
   return (
     <div>
-      <h1>Hello Fam</h1>
+      <AppHeader />
     </div>
   );
 }
