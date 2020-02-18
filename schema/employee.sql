@@ -4,7 +4,7 @@ create database GrindhubDB;
 
 use database GrindhubDB;
 
-create table employee(
+create table Employee(
 userID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 first_name VARCHAR(100) NOT NULL,
 last_name VARCHAR(100) NOT NULL,
