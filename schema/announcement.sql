@@ -4,7 +4,7 @@ create database GrindhubDB;
 
 use database GrindhubDB;
 
-create table announcement(
+create table Announcements(
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 description TEXT,
 news_id INT AUTO_INCREMENT PRIMARY KEY,
