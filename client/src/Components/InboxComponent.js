@@ -17,29 +17,30 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    display: "flex"
   },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
+    marginLeft: drawerWidth
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
+    flexShrink: 0
   },
   drawerPaper: {
-    width: drawerWidth,
+    width: drawerWidth
   },
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    backgroundColor: "#24344D",
-    padding: theme.spacing(3),
-  },
- 
+
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3)
+  }
 }));
 
-export default function InboxComp() {
+export default function InboxComponent() {
+
   const classes = useStyles();
 
   return (
@@ -56,25 +57,29 @@ export default function InboxComp() {
         className={classes.drawer}
         variant="permanent"
         classes={{
-          paper: classes.drawerPaper,
+          paper: classes.drawerPaper
         }}
         anchor="left"
       >
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -83,23 +88,23 @@ export default function InboxComp() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          Esteemed Employeee, 
+          Esteemed Employeee,
           <br></br>
-          
-          Consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
+          Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent
+          elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet.
+          Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis
+          convallis tellus id interdum velit laoreet id donec ultrices. Odio
+          morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis
+          viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
+          proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt.
+          Cras tincidunt lobortis feugiat vivamus at augue. At augue eget arcu
+          dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi
+          tincidunt. Lorem donec massa sapien faucibus et molestie ac.
           <br></br>
           -Boss
         </Typography>
-    
       </main>
     </div>
   );
