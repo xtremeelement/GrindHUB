@@ -34,8 +34,11 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
 
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: "#24344D",
     padding: theme.spacing(3)
+  },
+  typography: {
+    color: "#CFD9E5"
   }
 }));
 
@@ -87,7 +90,7 @@ export default function InboxComponent() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
+        <Typography className={classes.typography} paragraph>
           Esteemed Employeee,
           <br></br>
           Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
