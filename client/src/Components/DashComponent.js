@@ -28,12 +28,13 @@ const useStyles = makeStyles(theme => ({
 
   papery: {
     marginTop: "-15px",
-    fontSize: "18px"
+    fontSize: "20px"
   },
   container: {
     width: "960px",
     height: "auto",
     margin: "auto",
+    marginTop: "150px",
     backgroundColor: "#24344D",
     paddingLeft: "100px",
     borderRadius: "25px"
@@ -49,38 +50,38 @@ export default function DashComponent() {
     <div className={classes.container}>
     <div className={classes.root}>
       <Paper elevation={3} >
-      <IconButton><AccessTime className={classes.girthy}/></IconButton>
+      <IconButton><AccessTime style={{fill: "black"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Schedule</h3>
       </Paper>
       <Paper elevation={3}>
-      <IconButton><FolderShared className={classes.girthy}/></IconButton>
+      <IconButton><FolderShared style={{fill: "#f1d592"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Documents</h3>
       </Paper>
       <Paper elevation={3}>
-      <IconButton><LocalAtm className={classes.girthy}/></IconButton>
+      <IconButton><LocalAtm style={{fill: "#099c52"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Pay</h3>
       </Paper>
       <Paper elevation={3}>
-      <IconButton><ContactPhone className={classes.girthy}/></IconButton>
+      <IconButton><ContactPhone style={{fill: "#4311b8"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery} >Contact Info</h3>
       </Paper>
       
     </div>
     <div className= {classes.root}>
     <Paper elevation={3} >
-      <IconButton><Star className={classes.girthy}/></IconButton>
+      <IconButton><Star style={{fill: "#fad934"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Benefits</h3>
       </Paper>
     <Paper elevation={3} >
-      <IconButton><Event className={classes.girthy}/></IconButton>
+      <IconButton><Event style={{fill: "#b8112c"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Time Off</h3>
       </Paper>
     <Paper elevation={3}>
-    <IconButton><Email className={classes.girthy}/></IconButton>
+    <IconButton><Email style={{fill: "#b3dee3"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Inbox</h3>
       </Paper>
     <Paper elevation={3} >
-    <IconButton><Announcement className={classes.girthy}/></IconButton>
+    <IconButton><Announcement style={{fill: "#f0931a"}} className={classes.girthy}/></IconButton>
       <h3 className={classes.papery}>Announcements</h3>
       </Paper>
     </div>
