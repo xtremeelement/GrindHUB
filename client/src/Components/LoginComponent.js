@@ -57,7 +57,7 @@ const MaterialUiForm = props => {
   );
 };
 
-export default LoginComponent({
+export default reduxForm({
   form: "MaterialUiForm", // a unique identifier for this form
   validate,
   asyncValidate
