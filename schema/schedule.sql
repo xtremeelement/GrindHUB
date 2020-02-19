@@ -14,4 +14,4 @@ create table Schedule(
     start TIME,
     end TIME
 
-)
+);
