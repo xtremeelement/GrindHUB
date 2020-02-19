@@ -1,8 +1,5 @@
 import React from "react";
-
-import AppHeader from "./Components/smallerComponents/AppHeader";
-
-
+import AppHeader from "./components/smallerComponents/AppHeader";
 import InboxComp from "./components/InboxComponent";
 import DashComponent from "./components/DashComponent";
 
@@ -14,7 +11,7 @@ function App() {
 
       <AppHeader />
 
-      <h1>Hello Fam</h1>
+      <h1>GrindHub</h1>
       <DashComponent/>
 
     </div>

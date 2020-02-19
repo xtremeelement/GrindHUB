@@ -5,15 +5,18 @@ import Paper from '@material-ui/core/Paper';
 import {AccessTime, Event, Announcement, Email, FolderShared, ContactPhone, LocalAtm, Star} from '@material-ui/icons';
 import IconButton from '@material-ui/core/IconButton';
 import './styles.css';
+import { AutoComplete } from 'material-ui';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     '& > *': {
-      margin: theme.spacing(1),
-      width: theme.spacing(16),
-      height: theme.spacing(16),
-  
+      margin: theme.spacing(2),
+      width: theme.spacing(18),
+      height: theme.spacing(18),
+      margin: "auto",
+      margin: "35px",
+     
     },
   },
 
@@ -21,12 +24,20 @@ const useStyles = makeStyles(theme => ({
     width: "3em",
     height: "3em",
     color: "#9F7CE1"
-
   },
 
   papery: {
     marginTop: "-15px",
     fontSize: "18px"
+  },
+  container: {
+    width: "960px",
+    height: "auto",
+    margin: "auto",
+    backgroundColor: "#24344D",
+    paddingLeft: "100px",
+    borderRadius: "25px"
+    
   }
  
 }));
@@ -35,7 +46,7 @@ export default function DashComponent() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.container}>
     <div className={classes.root}>
       <Paper elevation={3} >
       <IconButton><AccessTime className={classes.girthy}/></IconButton>
@@ -78,8 +89,3 @@ export default function DashComponent() {
   );
 }
 
-//we will probably need minimum two rows of 4 paper elements
-
-//here are some possible material IconButtons we could use
-
-//
