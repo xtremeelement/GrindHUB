@@ -1,14 +1,15 @@
 import React from "react";
-// import Schedule from "./components/ScheduleComponent";
+import Schedule from "./components/ScheduleComponent";
 import AppHeader from "./components/smallerComponents/AppHeader";
 import TimeOff from "./components/TimeOffComponent";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfileComponent";
-import FolderList from "./components/DocsComponent";
 import NewsAlerts from "./components/NewsComponent";
 import CreateSchedule from "./components/adminSchedule";
-
-// import InboxComp from "./components/InboxComponent";
+import Documents from "./components/DocsComponent";
+import AdminDash from "./components/AdminDash";
+import AllEmployees from "./components/AdminEmployees";
+import InboxComp from "./components/InboxComponent";
 import DashComponent from "./components/DashComponent";
 import SignInSide from "./components/LoginComponent";
 // import Button from "@material-ui/core/Button";
@@ -16,27 +17,25 @@ import SignInSide from "./components/LoginComponent";
 function App() {
   return (
     <div>
-      <AppHeader />
-
-      {/* <Router>
+      <Router>
+        <AppHeader />
         <Switch>
           <Route exact path="/" component={DashComponent} />
           <Route path="/schedule" component={Schedule} />
           <Route path="/timeoff" component={TimeOff} />
           <Route path="/announcements" component={NewsAlerts} />
-          <Route path="/signin" component={SignInSide}/>          
+          <Route path="/signin" component={SignInSide} />
+          <Route path="/documents" component={Documents} />
+          <Route path="/announcements" component={NewsAlerts} />
+          <Route path="/inbox" component={InboxComp} />
+          <Route path="/contact" component={UserProfile} />
+          <Route exact path="/admin" component={AdminDash} />
+          <Route path="/admin/schedule" component={AllEmployees} />
+          <Route path="/admin/annoucements" component={AdminDash} />
+          <Route path="/admin/newemployee" component={AdminDash} />
+          <Route path="/admin/timeoff" component={AdminDash} />
         </Switch>
       </Router>
-        
-        
-   
-
-    
-      
-      <CreateSchedule/>
-
-
-
     </div>
   );
 }
