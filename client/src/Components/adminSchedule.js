@@ -9,7 +9,7 @@ import {
 } from "@material-ui/pickers";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function CreateSchedule() {
   // The first commit of Material-UI
@@ -22,7 +22,7 @@ export default function CreateSchedule() {
   };
 
   return (
- <div style={{ width: "60%", margin: "10% auto" }}>
+    <div style={{ width: "60%", margin: "10% auto" }}>
       <Button component={Link} to="/admin" style={{ color: "white" }}>
         -Back
       </Button>

@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -29,7 +30,10 @@ export default function UserProfile() {
       <Grid container spacing={3}>
         <Grid item xs>
           <Paper className={classes.paper}>
-            <img src="https://pbs.twimg.com/profile_images/601916716571058176/LEHlLQ_o_400x400.jpg" />
+            <img
+              src="https://pbs.twimg.com/profile_images/601916716571058176/LEHlLQ_o_400x400.jpg"
+              alt="user"
+            />
           </Paper>
         </Grid>
       </Grid>

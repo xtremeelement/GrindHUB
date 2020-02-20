@@ -1,33 +1,26 @@
 //importing all of the necessary elements from the material UI package
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import Schedule from "./ScheduleComponent";
 import Paper from "@material-ui/core/Paper";
 import {
   AccessTime,
   Event,
   Announcement,
-  Email,
-  FolderShared,
-  ContactPhone,
-  LocalAtm,
-  Star
+  ContactPhone
 } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import "./styles.css";
-import { AutoComplete } from "material-ui";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
     "& > *": {
-      margin: theme.spacing(2),
       width: theme.spacing(18),
       height: theme.spacing(18),
-      margin: "auto",
-      margin: "35px"
+      margin: "auto"
     }
   },
 
@@ -46,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     height: "auto",
     margin: "auto",
     marginTop: "150px",
-    backgroundColor: "#24344D",
+    backgroundColor: "#182231",
     paddingLeft: "100px",
     borderRadius: "25px"
   }
@@ -70,7 +63,7 @@ export default function AdminDash() {
             <AccessTime style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
 
-          <h5 className={classes.papery}>Create Schedule</h5>
+          <h5 className={classes.papery}>Manage Employees</h5>
         </Paper>
         <Paper elevation={3}>
           <IconButton component={Link} to="/admin/timeoff" label="Time Off">

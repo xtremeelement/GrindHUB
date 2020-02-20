@@ -62,7 +62,7 @@ export default function Schedule() {
           </TableHead>
           <TableBody>
             {rows.map(row => (
-              <TableRow key={row.name}>
+              <TableRow key={row.date}>
                 <TableCell component="th" scope="row">
                   {row.day}
                 </TableCell>

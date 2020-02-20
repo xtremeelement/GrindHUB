@@ -5,8 +5,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -35,11 +35,9 @@ export default function AppHeader() {
             className={classes.menuButton}
             color="primary"
             aria-label="menu"
-          >
-           
-          </IconButton>
+          ></IconButton>
           <Typography variant="h4" className={classes.title}>
-            GrindHub <img src="gear.jpg"/>
+            GrindHub <img src="./images/gear.jpg" alt="gear logo" />
           </Typography>
           <Button
             variant="contained"
