@@ -17,14 +17,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function AllEmployees() {
   const classes = useStyles();
-  let [AllEmps, setAllEmps] = useState();
+  let [AllEmps, setAllEmps] = useState([]);
 
   useEffect(() => {
     axios
       .get("/api/findAllEmps")
       .then(res => {
         console.log(res.data);
-        AllEmps = res.data;
+        setAllEmps(res.data);
         console.log(AllEmps);
       })
       .catch(err => console.log(err));
@@ -33,13 +33,7 @@ export default function AllEmployees() {
   return (
     <List component="nav" className={classes.root} aria-label="contacts">
       <ListItem button>
-        <ListItemIcon>
-          <StarIcon />
-        </ListItemIcon>
         <ListItemText primary="Chelsea Otakan" />
-      </ListItem>
-      <ListItem button>
-        <ListItemText inset primary="Eric Hoffman" />
       </ListItem>
     </List>
   );
