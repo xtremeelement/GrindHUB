@@ -22,7 +22,7 @@ export default function CreateSchedule() {
   };
 
   return (
-    <div style={{ width: "60%", margin: "10% auto" }}>
+ <div style={{ width: "60%", margin: "10% auto" }}>
       <Button component={Link} to="/admin" style={{ color: "white" }}>
         -Back
       </Button>

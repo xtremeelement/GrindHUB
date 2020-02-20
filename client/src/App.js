@@ -6,10 +6,17 @@ import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfileComponent";
 import NewsAlerts from "./components/NewsComponent";
 import CreateSchedule from "./components/adminSchedule";
+
 import Documents from "./components/DocsComponent";
 import AdminDash from "./components/AdminDash";
 import AllEmployees from "./components/AdminEmployees";
 import InboxComp from "./components/InboxComponent";
+
+import CreateEmployee from "./components/CreateEmployee";
+import CreateNews from "./components/CreateNews"
+
+// import InboxComp from "./components/InboxComponent";
+
 import DashComponent from "./components/DashComponent";
 import SignInSide from "./components/LoginComponent";
 // import Button from "@material-ui/core/Button";
@@ -35,7 +42,14 @@ function App() {
           <Route path="/admin/newemployee" component={AdminDash} />
           <Route path="/admin/timeoff" component={AdminDash} />
         </Switch>
+
       </Router>
+
+
+
+
+
+
     </div>
   );
 }
