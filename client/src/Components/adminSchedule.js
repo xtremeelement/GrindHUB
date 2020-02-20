@@ -21,7 +21,7 @@ export default function CreateSchedule() {
   };
 
   return (
-    <div style={{backgroundColor: "white", width: "60%", margin: "0 auto", marginTop:"10%"}}>
+    <div style={{backgroundColor: "white", width: "60%", height: "300px", margin: "0 auto", marginTop:"10%", border:"solid 7px #3F51B5", borderRadius: "25px", padding: "100px"}}>
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
       <TextField id="standard-name" label="Name" value= "name" />
@@ -48,7 +48,7 @@ export default function CreateSchedule() {
         />
       </Grid>
     </MuiPickersUtilsProvider>
-    <Button style={{marginLeft: "45%"}} variant="contained" color="primary" disableElevation>
+    <Button style={{margin: "20px", marginLeft: "45%"}} variant="contained" color="primary" disableElevation>
       Submit
     </Button>
     </div>
