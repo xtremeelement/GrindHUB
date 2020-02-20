@@ -36,10 +36,10 @@ export default function AppHeader() {
             color="primary"
             aria-label="menu"
           >
-            <MenuIcon />
+           
           </IconButton>
           <Typography variant="h4" className={classes.title}>
-            GrindHub
+            GrindHub <img src="gear.jpg"/>
           </Typography>
           <Button
             variant="contained"

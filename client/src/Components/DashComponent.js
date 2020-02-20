@@ -38,17 +38,22 @@ const useStyles = makeStyles(theme => ({
   },
 
   papery: {
-    marginTop: "-15px",
-    fontSize: "20px"
+    marginTop: "10px",
+    fontSize: "16px",
+    fontFamily: "Roboto"
   },
   container: {
     width: "960px",
     height: "auto",
     margin: "auto",
     marginTop: "150px",
-    backgroundColor: "#24344D",
+    backgroundColor: "#192231",
     paddingLeft: "100px",
-    borderRadius: "25px"
+    
+  },
+  shadow: {
+    boxShadow: "10px 10px 8px #888888",
+   
   }
 }));
 
@@ -58,32 +63,32 @@ export default function DashComponent() {
   return (
     <div className={classes.container}>
       <div className={classes.root}>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/schedule" label="Schedule">
             <AccessTime style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
 
           <h3 className={classes.papery}>Schedule</h3>
         </Paper>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/documents" label="documents">
             <FolderShared
-              style={{ fill: "#f1d592" }}
+              style={{ fill: "black" }}
               className={classes.girthy}
             />
           </IconButton>
           <h3 className={classes.papery}>Documents</h3>
         </Paper>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/pay" label="pay">
-            <LocalAtm style={{ fill: "#099c52" }} className={classes.girthy} />
+            <LocalAtm style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Pay</h3>
         </Paper>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/contact" label="contact">
             <ContactPhone
-              style={{ fill: "#4311b8" }}
+              style={{ fill: "black" }}
               className={classes.girthy}
             />
           </IconButton>
@@ -91,32 +96,32 @@ export default function DashComponent() {
         </Paper>
       </div>
       <div className={classes.root}>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/benefits" label="contact">
-            <Star style={{ fill: "#fad934" }} className={classes.girthy} />
+            <Star style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Benefits</h3>
         </Paper>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/timeoff" label="Time Off">
-            <Event style={{ fill: "#b8112c" }} className={classes.girthy} />
+            <Event style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Time Off</h3>
         </Paper>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton component={Link} to="/inbox" label="Inbox">
-            <Email style={{ fill: "#b3dee3" }} className={classes.girthy} />
+            <Email style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Inbox</h3>
         </Paper>
-        <Paper elevation={3}>
+        <Paper className={classes.shadow} elevation={3}>
           <IconButton
             component={Link}
             to="/announcements"
             label="Announcements"
           >
             <Announcement
-              style={{ fill: "#f0931a" }}
+              style={{ fill: "black" }}
               className={classes.girthy}
             />
           </IconButton>
