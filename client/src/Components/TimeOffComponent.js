@@ -72,7 +72,10 @@ export default function TimeOff() {
           style={{ margin: "0 auto", display: "block" }}
         />
         <br />
-        <Button variant="contained" style={{ margin: "0 auto" }}>
+        <Button
+          variant="contained"
+          style={{ margin: "0 auto", display: "block" }}
+        >
           Submit
         </Button>
       </form>
