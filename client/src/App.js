@@ -30,7 +30,6 @@ function App() {
           <Route exact path="/" component={DashComponent} />
           <Route path="/schedule" component={Schedule} />
           <Route path="/timeoff" component={TimeOff} />
-          <Route path="/announcements" component={NewsAlerts} />
           <Route path="/signin" component={SignInSide} />
           <Route path="/documents" component={Documents} />
           <Route path="/announcements" component={NewsAlerts} />
