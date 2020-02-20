@@ -7,6 +7,8 @@ import UserProfile from "./components/UserProfileComponent";
 import FolderList from "./components/DocsComponent";
 import NewsAlerts from "./components/NewsComponent";
 import CreateSchedule from "./components/adminSchedule";
+import CreateEmployee from "./components/CreateEmployee";
+import CreateNews from "./components/CreateNews"
 
 // import InboxComp from "./components/InboxComponent";
 import DashComponent from "./components/DashComponent";
@@ -26,14 +28,17 @@ function App() {
           <Route path="/announcements" component={NewsAlerts} />
           <Route path="/signin" component={SignInSide}/>          
         </Switch>
-      </Router>
+      </Router> */}
         
-        
+        {/* <CreateNews/> */}
    
+      {/* <CreateEmployee/> */}
+      {/* <DashComponent/> */}
+
 
     
       
-      <CreateSchedule/>
+      {/* <CreateSchedule/>  */}
 
 
 
