@@ -1,64 +1,126 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import TextField from "material-ui/TextField";
-import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-import asyncValidate from "./asyncValidate";
-import validate from "./validate";
-
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => (
-  <TextField
-    hintText={label}
-    floatingLabelText={label}
-    errorText={touched && error}
-    {...input}
-    {...custom}
-  />
-);
-
-const renderRadioGroup = ({ input, ...rest }) => (
-  <RadioButtonGroup
-    {...input}
-    {...rest}
-    valueSelected={input.value}
-    onChange={(event, value) => input.onChange(value)}
-  />
-);
-
-const MaterialUiForm = props => {
-  const { handleSubmit, pristine, submitting } = props;
+function Copyright() {
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <Field name="Email" component={renderTextField} label="Email" />
-      </div>
-      <div>
-        <Field name="password" component={renderTextField} label="Password" />
-      </div>
-
-      <div>
-        <Field name="role" component={renderRadioGroup}>
-          <RadioButton value="employee" label="Employee" />
-          <RadioButton value="employer" label="Employer" />
-        </Field>
-      </div>
-
-      <div>
-        <button type="submit" disabled={pristine || submitting}>
-          Submit
-        </button>
-      </div>
-    </form>
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        GrindHub
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
-};
+}
 
-export default reduxForm({
-  form: "MaterialUiForm", // a unique identifier for this form
-  validate,
-  asyncValidate
-})(MaterialUiForm);
+const useStyles = makeStyles(theme => ({
+  root: {
+    height: '100vh',
+  },
+  image: {
+    backgroundImage: 'url(https://i.imgur.com/W6d64x7.jpg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export default function SignInSide() {
+  const classes = useStyles();
+
+  return (
+    <Grid container component="main" className={classes.root}>
+      <CssBaseline />
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <form className={classes.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Employee ID"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In + Get Your Grind On
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+            </Grid>
+            <Box mt={5}>
+              <Copyright />
+            </Box>
+          </form>
+        </div>
+      </Grid>
+    </Grid>
+  );
+}
