@@ -14,7 +14,6 @@ import SignInSide from "./components/SignIn";
 import adminSchedule from "./components/adminSchedule";
 import AdminTimeOff from "./components/ApproveTimeOff";
 
-
 function App() {
   return (
     <div>
@@ -34,8 +33,8 @@ function App() {
           <Route path="/admin/annoucements" component={AdminDash} />
           <Route path="/admin/newemployee" component={AdminDash} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
-          <Route path="/admin/createSchedule/:id" component={adminSchedule} />
-          <Route path="/admin/newemployee" component={AdminDash} />
+          <Route path="/admin/createSchedule/:id" component={adminSchedule} />       
+
         </Switch>
       </Router>
     </div>

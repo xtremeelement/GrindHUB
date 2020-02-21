@@ -29,6 +29,14 @@ router.get("/employeeSchedule/:empID", (req, res) => {
   );
 });
 
+router.get("/admin/emphours/:userid", (req, res) => {
+  const user = req.params.userid;
+  pool.query("SELECT * FROM Schedule WHERE UserID=?", user, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
 router.get("/employeeInfo/:empID", (req, res) => {
   const user = req.params.empID;
   pool.query("SELECT * FROM Employee WHERE userId=?", user, (error, result) => {
