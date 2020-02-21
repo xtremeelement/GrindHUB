@@ -5,7 +5,7 @@ create database GrindhubDB;
 use database GrindhubDB;
 
 create table days_off(
- absence_id INT AUTO_INCREMENT PRIMARY KEY,
+ req_id INT AUTO_INCREMENT PRIMARY KEY,
  user_id INT NOT NULL,
  day_req DATE NOT NULL,
  approved BOOLEAN, 
