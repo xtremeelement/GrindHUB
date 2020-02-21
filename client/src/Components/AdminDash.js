@@ -17,31 +17,32 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
+   
     "& > *": {
       width: theme.spacing(18),
       height: theme.spacing(18),
-      margin: "auto"
+      margin: "auto",
+      backgroundColor: "#b3b3cc"
     }
   },
 
   girthy: {
-    width: "3em",
-    height: "3em",
+    width: "2em",
+    height: "2em",
     color: "#9F7CE1"
   },
 
   papery: {
-    marginTop: "-15px",
-    fontSize: "20px"
+    marginTop: "10px",
+    fontSize: "20px",
+    fontFamily: "Roboto"
   },
   container: {
-    width: "960px",
+    width: "60%",
     height: "auto",
-    margin: "auto",
+    margin: "0 auto",
     marginTop: "150px",
-    backgroundColor: "#182231",
-    paddingLeft: "100px",
-    borderRadius: "25px"
+    backgroundColor: "#182231"
   }
 }));
 
@@ -50,7 +51,7 @@ export default function AdminDash() {
 
   return (
     <div className={classes.container}>
-      <Button component={Link} to="/" style={{ color: "white" }}>
+      <Button component={Link} to="/" style={{ color: "white", fontFamily: "Roboto" }}>
         -Back to Main
       </Button>
       <div className={classes.root}>
@@ -67,7 +68,7 @@ export default function AdminDash() {
         </Paper>
         <Paper elevation={3}>
           <IconButton component={Link} to="/admin/timeoff" label="Time Off">
-            <Event style={{ fill: "#b8112c" }} className={classes.girthy} />
+            <Event style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h5 className={classes.papery}>Time Off Requests</h5>
         </Paper>
@@ -78,7 +79,7 @@ export default function AdminDash() {
             label="Announcements"
           >
             <Announcement
-              style={{ fill: "#f0931a" }}
+              style={{ fill: "black" }}
               className={classes.girthy}
             />
           </IconButton>
@@ -91,7 +92,7 @@ export default function AdminDash() {
             label="new employee"
           >
             <ContactPhone
-              style={{ fill: "#4311b8" }}
+              style={{ fill: "black" }}
               className={classes.girthy}
             />
           </IconButton>
