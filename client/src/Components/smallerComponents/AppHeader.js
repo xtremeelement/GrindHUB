@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    textAlign: "center"
   },
   buttonColor: {
     backgroundColor: "white",
@@ -37,7 +38,7 @@ export default function AppHeader() {
             aria-label="menu"
           ></IconButton>
           <Typography variant="h4" className={classes.title}>
-            GrindHub <img src="./images/gear.jpg" alt="gear logo" />
+            GrindHub 
           </Typography>
           <Button
             variant="contained"
