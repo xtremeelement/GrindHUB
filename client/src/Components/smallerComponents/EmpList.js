@@ -3,6 +3,8 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 export default function EmpList() {
   let [AllEmps, setAllEmps] = useState([]);
@@ -30,7 +32,14 @@ export default function EmpList() {
           let name = employee.first_name + " " + employee.last_name;
           return (
             <TableRow key={employee.userID}>
-              <TableCell align="left">{name}</TableCell>
+              <TableCell align="left">
+                <Button
+                  component={Link}
+                  to={`/admin/createSchedule/${employee.userID}`}
+                >
+                  {name}
+                </Button>
+              </TableCell>
               <TableCell align="right">{employee.pay_rate}</TableCell>
               <TableCell align="right">{employee.phone_number}</TableCell>
               <TableCell align="right">{employee.email}</TableCell>
