@@ -13,7 +13,6 @@ var pool = mysql.createPool({
 router.get("/findAllEmps", (req, res) => {
   pool.query("SELECT * FROM Employee", (error, results) => {
     if (error) throw error;
-    console.log(results);
     res.send(results);
   });
 });

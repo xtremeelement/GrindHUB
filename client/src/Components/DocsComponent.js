@@ -6,7 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import WorkIcon from "@material-ui/icons/Work";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
@@ -45,6 +45,7 @@ export default function Documents() {
           <a
             href="https://www.irs.gov/pub/irs-pdf/fw2.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
           >
             <Button>
@@ -62,6 +63,7 @@ export default function Documents() {
           <a
             href="https://19of32x2yl33s8o4xza0gf14-wpengine.netdna-ssl.com/wp-content/uploads/Exhibit-A-SAMPLE-CONTRACT.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
           >
             <Button>
@@ -78,6 +80,7 @@ export default function Documents() {
           <a
             href="https://www.schwab.com/public/file/P-619651/BDL50374-04-NC_PPA_401k_Basic_Plan_Doc_Final_Web.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
           >
             <Button>
@@ -95,6 +98,7 @@ export default function Documents() {
           <a
             href="https://parksjobs.disneycareers.com/benefits?gclid=CjwKCAiA1rPyBRAREiwA1UIy8ComOHUgZl5RwdnIzq04JTAda_M9o_VhicG_is4RQlBDuPPeRk6MehoCfCsQAvD_BwE"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
           >
             <Button>

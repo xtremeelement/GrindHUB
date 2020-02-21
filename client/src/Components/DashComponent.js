@@ -14,20 +14,18 @@ import {
   Star
 } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
+
 import "./styles.css";
-import { AutoComplete } from "material-ui";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
     "& > *": {
-      margin: theme.spacing(2),
       width: theme.spacing(18),
       height: theme.spacing(18),
-      margin: "auto",
-      margin: "35px"
+      margin: "35px auto"
     }
   },
 
@@ -48,12 +46,10 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     marginTop: "150px",
     backgroundColor: "#192231",
-    paddingLeft: "100px",
-    
+    paddingLeft: "100px"
   },
   shadow: {
-    boxShadow: "10px 10px 8px #888888",
-   
+    boxShadow: "10px 10px 8px #888888"
   }
 }));
 
