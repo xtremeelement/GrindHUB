@@ -11,6 +11,7 @@ import AllEmployees from "./components/AdminEmployees";
 import InboxComp from "./components/InboxComponent";
 import DashComponent from "./components/DashComponent";
 import SignInSide from "./components/LoginComponent";
+import AdminTimeOff from "./components/ApproveTimeOff";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Router>
         <AppHeader />
         <Switch>
-          <Route exact path="/" component={DashComponent} />
+          {/* <Route exact path="/" component={DashComponent} />
           <Route path="/schedule" component={Schedule} />
           <Route path="/timeoff" component={TimeOff} />
           <Route path="/signin" component={SignInSide} />
@@ -29,8 +30,8 @@ function App() {
           <Route exact path="/admin" component={AdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
           <Route path="/admin/annoucements" component={AdminDash} />
-          <Route path="/admin/newemployee" component={AdminDash} />
-          <Route path="/admin/timeoff" component={AdminDash} />
+          <Route path="/admin/newemployee" component={AdminDash} /> */}
+          <Route path="/admin/timeoff" component={AdminTimeOff} />
         </Switch>
       </Router>
     </div>
