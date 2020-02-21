@@ -10,8 +10,10 @@ import AdminDash from "./components/AdminDash";
 import AllEmployees from "./components/AdminEmployees";
 import InboxComp from "./components/InboxComponent";
 import DashComponent from "./components/DashComponent";
-import SignInSide from "./components/LoginComponent";
+import SignInSide from "./components/LoginComponent"
+import adminSchedule from "./components/adminSchedule";
 import AdminTimeOff from "./components/ApproveTimeOff";
+
 
 function App() {
   return (
@@ -30,8 +32,12 @@ function App() {
           <Route exact path="/admin" component={AdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
           <Route path="/admin/annoucements" component={AdminDash} />
-          <Route path="/admin/newemployee" component={AdminDash} /> */}
+          <Route path="/admin/newemployee" component={AdminDash} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
+          <Route path="/admin/createSchedule/:id" component={adminSchedule} />
+          <Route path="/admin/newemployee" component={AdminDash} /> */}
+          
+
         </Switch>
       </Router>
     </div>

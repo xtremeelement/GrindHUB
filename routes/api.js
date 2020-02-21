@@ -77,4 +77,13 @@ router.post("/admin/newEmp", (req, res) => {
   );
 });
 
+router.put("/admin/approve/:id", (req, res) => {
+  console.log(req.params.id);
+  res.status(200);
+});
+
+router.put("/admin/deny/:id", (req, res) => {
+  console.log(req.params.id);
+  res.status(200);
+});
 module.exports = router;
