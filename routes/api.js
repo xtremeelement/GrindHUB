@@ -31,16 +31,16 @@ router.get("/employeeSchedule/:empID", (req, res) => {
 
 router.get("/employeeInfo/:empID", (req, res) => {
   const user = req.params.empID;
-  pool.query("SELECT * FROM Employee WHERE UserID=?", user, (error, result) => {
+  pool.query("SELECT * FROM Employee WHERE userId=?", user, (error, result) => {
     if (error) throw error;
-    res.send(results);
+    res.send(result);
   });
 });
 
 router.get("/admin/daysOff", (req, res) => {
-  pool.query("SELECT * FROM daysOff", (err, result) => {
+  pool.query("SELECT * FROM days_off", (err, result) => {
     if (err) throw err;
-    res.send(results);
+    res.send(result);
   });
 });
 

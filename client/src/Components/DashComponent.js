@@ -25,13 +25,14 @@ const useStyles = makeStyles(theme => ({
     "& > *": {
       width: theme.spacing(18),
       height: theme.spacing(18),
-      margin: "35px auto"
+      margin: "35px auto",
+      backgroundColor: "#b3b3cc"
     }
   },
 
   girthy: {
-    width: "3em",
-    height: "3em",
+    width: "2em",
+    height: "2em",
     color: "#9F7CE1"
   },
 
@@ -41,16 +42,13 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Roboto"
   },
   container: {
-    width: "960px",
+    width: "60%",
     height: "auto",
-    margin: "auto",
+    margin: "0 auto",
     marginTop: "150px",
-    backgroundColor: "#192231",
-    paddingLeft: "100px"
-  },
-  shadow: {
-    boxShadow: "10px 10px 8px #888888"
+    backgroundColor: "#192231"  
   }
+ 
 }));
 
 export default function DashComponent() {
@@ -59,14 +57,14 @@ export default function DashComponent() {
   return (
     <div className={classes.container}>
       <div className={classes.root}>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper  elevation={3}>
           <IconButton component={Link} to="/schedule" label="Schedule">
             <AccessTime style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
 
           <h3 className={classes.papery}>Schedule</h3>
         </Paper>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper elevation={3}>
           <IconButton component={Link} to="/documents" label="documents">
             <FolderShared
               style={{ fill: "black" }}
@@ -75,14 +73,14 @@ export default function DashComponent() {
           </IconButton>
           <h3 className={classes.papery}>Documents</h3>
         </Paper>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper elevation={3}>
           <IconButton component={Link} to="/pay" label="pay">
             <LocalAtm style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Pay</h3>
         </Paper>
-        <Paper className={classes.shadow} elevation={3}>
-          <IconButton component={Link} to="/contact" label="contact">
+        <Paper elevation={3}>
+          <IconButton component={Link} to="/contact/4" label="contact">
             <ContactPhone
               style={{ fill: "black" }}
               className={classes.girthy}
@@ -92,25 +90,25 @@ export default function DashComponent() {
         </Paper>
       </div>
       <div className={classes.root}>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper elevation={3}>
           <IconButton component={Link} to="/benefits" label="contact">
             <Star style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Benefits</h3>
         </Paper>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper elevation={3}>
           <IconButton component={Link} to="/timeoff" label="Time Off">
             <Event style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Time Off</h3>
         </Paper>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper elevation={3}>
           <IconButton component={Link} to="/inbox" label="Inbox">
             <Email style={{ fill: "black" }} className={classes.girthy} />
           </IconButton>
           <h3 className={classes.papery}>Inbox</h3>
         </Paper>
-        <Paper className={classes.shadow} elevation={3}>
+        <Paper elevation={3}>
           <IconButton
             component={Link}
             to="/announcements"

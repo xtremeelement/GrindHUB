@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://i.imgur.com/W6d64x7.jpg)',
+    backgroundImage: 'url(https://i.imgur.com/lPJE0Xg.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#959BE9",
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -106,7 +106,7 @@ export default function SignInSide() {
               color="primary"
               className={classes.submit}
             >
-              Sign In + Get Your Grind On
+              Sign In + Grind Those Gears
             </Button>
             <Grid container>
               <Grid item xs>

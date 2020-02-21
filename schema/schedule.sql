@@ -2,7 +2,7 @@ drop database if exists GrindhubDB;
 
 create database GrindhubDB;
 
-use database GrindhubDB;
+use GrindhubDB;
 
 create table Schedule(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -6,9 +6,9 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import EmpList from "./smallerComponents/EmpList";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import TimeOffReq from "./smallerComponents/TimeRows";
 
 const useStyles = makeStyles({
   table: {
@@ -25,7 +25,7 @@ export default function AdminTimeOff() {
 
   return (
     <div style={{ width: "60%", margin: "10% auto" }}>
-        <h1  className={classes.header}>Employee Time-Off Requests</h1>
+        <h1  className={classes.header}  style={{ color: "white" }}>Employee Time-Off Requests</h1>
       <Button component={Link} to="/admin" style={{ color: "white" }}>
         -Back
       </Button>
@@ -44,7 +44,7 @@ export default function AdminTimeOff() {
               <TableCell align="right">Deny ❌</TableCell>
             </TableRow>
           </TableHead>
-          <EmpList />
+          <TimeOffReq />
         </Table>
       </TableContainer>
     </div>
