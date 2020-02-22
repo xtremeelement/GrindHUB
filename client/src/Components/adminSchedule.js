@@ -30,33 +30,62 @@ export default function CreateSchedule(props) {
   // The first commit of Material-UI
   let [formData, setFormData] = useState([]);
   const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
+    new Date("2020-02-20T21:11:54")
   );
-  const [startTime, setStartTime] = useState(new Date("2014-08-18T21:11:54"));
-  const [endTime, setEndTime] = useState(new Date("2014-08-18T21:11:54"));
+  const [startTime, setStartTime] = useState(new Date("2020-02-20T11:00:00"));
+  const [endTime, setEndTime] = useState(new Date("2020-02-20T14:00:00"));
 
   const handleDateChange = date => {
     setSelectedDate(date);
-    setFormData([...formData, { date }]);
+    setFormData({ ...formData, date });
   };
 
   const handleStartChange = start => {
     setStartTime(start);
-    setFormData([...formData, { start: start }]);
+    setFormData({ ...formData, start });
   };
 
   const handleEndChange = end => {
     setEndTime(end);
-    setFormData([...formData, { end: end }]);
+    setFormData({ ...formData, end });
+  };
+
+  const convertTime12to24 = time12h => {
+    const [time, modifier] = time12h.split(" ");
+
+    let [hours, minutes, seconds] = time.split(":");
+
+    if (hours === "12") {
+      hours = "00";
+    }
+
+    if (modifier === "PM") {
+      hours = parseInt(hours, 10) + 12;
+    }
+
+    return `${hours}:${minutes}:${seconds}`;
   };
 
   function submitSchedule() {
-    console.log(formData);
-    console.log(props.match);
+    let data = [];
+    let starttime = new Date(formData.start).toLocaleTimeString();
+    let start = convertTime12to24(starttime);
+    let endtime = new Date(formData.end).toLocaleTimeString();
+    let end = convertTime12to24(endtime);
+    let day_work = new Date(formData.date).toISOString().substring(0, 10);
+    data = [
+      {
+        start,
+        end,
+        day_work
+      }
+    ];
+
     axios
-      .put(`/admin/submitSchedule/${props.match.params.id}`, formData)
+      .post(`/api/admin/submitSchedule/${props.match.params.id}`, data)
       .then(res => {
         console.log(res);
+        window.location.reload();
       });
     setFormData([]);
   }

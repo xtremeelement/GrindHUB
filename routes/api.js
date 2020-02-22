@@ -110,4 +110,17 @@ router.put("/admin/deny/:req_id", (req, res) => {
     }
   );
 });
+
+router.post("/admin/submitSchedule/:id", (req, res) => {
+  let id = req.params.id;
+  console.log(req.body[0]);
+  pool.query(
+    "insert into Schedule(userID, day_work, start,end) values(?,?,?,?)",
+    [req.params.id, req.body[0].day_work, req.body[0].start, req.body[0].end],
+    (err, result) => {
+      if (err) console.log(err);
+      res.end();
+    }
+  );
+});
 module.exports = router;

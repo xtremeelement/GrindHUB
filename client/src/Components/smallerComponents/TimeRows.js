@@ -10,7 +10,7 @@ export default function TimeOffReq() {
   let [AllReqs, setAllReqs] = useState([]);
   let [loading, setLoading] = useState(true);
   let [requestChanged, setRequestChanged] = useState(0);
-  let history = useHistory();
+
   useEffect(() => {
     axios.get("/api/admin/daysOff").then(res => {
       setAllReqs(res.data);
@@ -22,13 +22,14 @@ export default function TimeOffReq() {
     console.log(req_id);
     axios.put(`/api/admin/approve/${req_id}`).then(res => {
       setRequestChanged(requestChanged + 1);
-      history.push("/admin/timeoff");
+      window.location.reload();
     });
   }
 
   function DenyTime(req_id) {
     axios.put(`/api/admin/deny/${req_id}`).then(res => {
       setRequestChanged(requestChanged + 1);
+      window.location.reload();
     });
   }
 
