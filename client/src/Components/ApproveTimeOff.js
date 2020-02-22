@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import TimeOffReq from "./smallerComponents/TimeRows";
 import PrevReqs from "./smallerComponents/PrevReqs";
+import Adminside from "./smallerComponents/Adminside";
 
 const useStyles = makeStyles({
   table: {
@@ -25,51 +26,54 @@ export default function AdminTimeOff() {
   const classes = useStyles();
 
   return (
-    <div style={{ width: "60%", margin: "10% auto" }}>
-      <h1 className={classes.header} style={{ color: "white" }}>
-        Employee Time-Off Requests
-      </h1>
-      <Button component={Link} to="/admin" style={{ color: "white" }}>
-        -Back
-      </Button>
-      <TableContainer component={Paper}>
-        <Table
-          className={classes.table}
-          size="small"
-          aria-label="a dense table"
-        >
-          <TableHead>
-            <h4>Requested Time Off</h4>
-            <TableRow>
-              <TableCell>Employee</TableCell>
-              <TableCell align="right">Date Requested</TableCell>
-              <TableCell align="right">Reason</TableCell>
-              <TableCell align="right">Approve ✓</TableCell>
-              <TableCell align="right">Deny ❌</TableCell>
-            </TableRow>
-          </TableHead>
-          <TimeOffReq />
-        </Table>
-        <br />
-        <br />
-        <Table
-          className={classes.table}
-          size="small"
-          aria-label="a dense table"
-        >
-          <TableHead>
-            <h4>Previous Requests</h4>
-            <TableRow>
-              <TableCell>Employee</TableCell>
-              <TableCell align="right">Date Requested</TableCell>
-              <TableCell align="right">Reason</TableCell>
-              <TableCell align="right">Approved?</TableCell>
-              <TableCell align="right">Denied?</TableCell>
-            </TableRow>
-          </TableHead>
-          <PrevReqs />
-        </Table>
-      </TableContainer>
+    <div>
+      <Adminside />
+      <div style={{ width: "60%", margin: "10% auto" }}>
+        <h1 className={classes.header} style={{ color: "white" }}>
+          Employee Time-Off Requests
+        </h1>
+        <Button component={Link} to="/admin" style={{ color: "white" }}>
+          -Back
+        </Button>
+        <TableContainer component={Paper}>
+          <Table
+            className={classes.table}
+            size="small"
+            aria-label="a dense table"
+          >
+            <TableHead>
+              <h4>Requested Time Off</h4>
+              <TableRow>
+                <TableCell>Employee</TableCell>
+                <TableCell align="right">Date Requested</TableCell>
+                <TableCell align="right">Reason</TableCell>
+                <TableCell align="right">Approve ✓</TableCell>
+                <TableCell align="right">Deny ❌</TableCell>
+              </TableRow>
+            </TableHead>
+            <TimeOffReq />
+          </Table>
+          <br />
+          <br />
+          <Table
+            className={classes.table}
+            size="small"
+            aria-label="a dense table"
+          >
+            <TableHead>
+              <h4>Previous Requests</h4>
+              <TableRow>
+                <TableCell>Employee</TableCell>
+                <TableCell align="right">Date Requested</TableCell>
+                <TableCell align="right">Reason</TableCell>
+                <TableCell align="right">Approved?</TableCell>
+                <TableCell align="right">Denied?</TableCell>
+              </TableRow>
+            </TableHead>
+            <PrevReqs />
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 }

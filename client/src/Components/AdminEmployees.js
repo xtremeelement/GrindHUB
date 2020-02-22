@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import EmpList from "./smallerComponents/EmpList";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import Adminside from "./smallerComponents/Adminside";
 
 const useStyles = makeStyles({
   table: {
@@ -20,27 +21,30 @@ export default function DenseTable() {
   const classes = useStyles();
 
   return (
-    <div style={{ width: "60%", margin: "10% auto" }}>
-      <Button component={Link} to="/admin" style={{ color: "white" }}>
-        -Back
-      </Button>
-      <TableContainer component={Paper}>
-        <Table
-          className={classes.table}
-          size="small"
-          aria-label="a dense table"
-        >
-          <TableHead>
-            <TableRow>
-              <TableCell>Employee</TableCell>
-              <TableCell align="right">Pay Rate</TableCell>
-              <TableCell align="right">Phone</TableCell>
-              <TableCell align="right">E-Mail</TableCell>
-            </TableRow>
-          </TableHead>
-          <EmpList />
-        </Table>
-      </TableContainer>
+    <div>
+      <Adminside />
+      <div style={{ width: "60%", margin: "10% auto" }}>
+        <Button component={Link} to="/admin" style={{ color: "white" }}>
+          -Back
+        </Button>
+        <TableContainer component={Paper}>
+          <Table
+            className={classes.table}
+            size="small"
+            aria-label="a dense table"
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell>Employee</TableCell>
+                <TableCell align="right">Pay Rate</TableCell>
+                <TableCell align="right">Phone</TableCell>
+                <TableCell align="right">E-Mail</TableCell>
+              </TableRow>
+            </TableHead>
+            <EmpList />
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 }

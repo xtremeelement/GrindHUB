@@ -17,8 +17,8 @@ router.get("/findAllEmps", (req, res) => {
   });
 });
 
-router.get("/employeeSchedule/:empID", (req, res) => {
-  const user = req.params.empID;
+router.get("/employeeSchedule/:id", (req, res) => {
+  const user = req.params.id;
   pool.query(
     "SELECT * FROM Schedule WHERE UserID =?",
     user,
