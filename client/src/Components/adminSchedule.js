@@ -18,6 +18,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import EmpHours from "./smallerComponents/EmpHours";
 import { makeStyles } from "@material-ui/core/styles";
+import Adminside from "./smallerComponents/Adminside";
 
 const useStyles = makeStyles({
   table: {
@@ -91,76 +92,83 @@ export default function CreateSchedule(props) {
   }
 
   return (
-    <div style={{ width: "60%", margin: "10% auto" }}>
-      <Button component={Link} to="/admin" style={{ color: "white" }}>
-        -Back
-      </Button>
-      <div style={{ backgroundColor: "white" }}>
-        <form>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid container justify="space-around">
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog"
-                label="Day of Shift"
-                format="MM/dd/yyyy"
-                value={selectedDate}
-                onChange={handleDateChange}
-                KeyboardButtonProps={{
-                  "aria-label": "change date"
-                }}
-              />
-              <KeyboardTimePicker
-                margin="normal"
-                id="time-picker"
-                label="Start Time"
-                value={startTime}
-                onChange={handleStartChange}
-                KeyboardButtonProps={{
-                  "aria-label": "change time"
-                }}
-              />
-              <KeyboardTimePicker
-                margin="normal"
-                id="time-picker"
-                label="End Time"
-                value={endTime}
-                onChange={handleEndChange}
-                KeyboardButtonProps={{
-                  "aria-label": "change time"
-                }}
-              />
-            </Grid>
-          </MuiPickersUtilsProvider>
-          <Button
-            style={{ marginLeft: "45%" }}
-            variant="contained"
-            color="primary"
-            disableElevation
-            onClick={submitSchedule}
-          >
-            Submit
-          </Button>
-        </form>
-      </div>
-      <TableContainer component={Paper}>
-        <Table
-          className={classes.table}
-          size="small"
-          aria-label="a dense table"
+    <div>
+      <Adminside />
+      <div style={{ width: "60%", margin: "10% auto" }}>
+        <Button
+          component={Link}
+          to="/admin/schedule"
+          style={{ color: "white" }}
         >
-          <TableHead>
-            <TableRow>
-              <TableCell align="right">Day Working</TableCell>
-              <TableCell align="right">Start Time</TableCell>
-              <TableCell align="right">End Time</TableCell>
-              <TableCell align="right">Tardy?</TableCell>
-              <TableCell align="right">Absent?</TableCell>
-            </TableRow>
-          </TableHead>
-          <EmpHours userid={props.match.params.id} />
-        </Table>
-      </TableContainer>
+          -Back
+        </Button>
+        <div style={{ backgroundColor: "white" }}>
+          <form>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <Grid container justify="space-around">
+                <KeyboardDatePicker
+                  margin="normal"
+                  id="date-picker-dialog"
+                  label="Day of Shift"
+                  format="MM/dd/yyyy"
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                  KeyboardButtonProps={{
+                    "aria-label": "change date"
+                  }}
+                />
+                <KeyboardTimePicker
+                  margin="normal"
+                  id="time-picker"
+                  label="Start Time"
+                  value={startTime}
+                  onChange={handleStartChange}
+                  KeyboardButtonProps={{
+                    "aria-label": "change time"
+                  }}
+                />
+                <KeyboardTimePicker
+                  margin="normal"
+                  id="time-picker"
+                  label="End Time"
+                  value={endTime}
+                  onChange={handleEndChange}
+                  KeyboardButtonProps={{
+                    "aria-label": "change time"
+                  }}
+                />
+              </Grid>
+            </MuiPickersUtilsProvider>
+            <Button
+              style={{ marginLeft: "45%" }}
+              variant="contained"
+              color="primary"
+              disableElevation
+              onClick={submitSchedule}
+            >
+              Submit
+            </Button>
+          </form>
+        </div>
+        <TableContainer component={Paper}>
+          <Table
+            className={classes.table}
+            size="small"
+            aria-label="a dense table"
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell align="right">Day Working</TableCell>
+                <TableCell align="right">Start Time</TableCell>
+                <TableCell align="right">End Time</TableCell>
+                <TableCell align="right">Tardy?</TableCell>
+                <TableCell align="right">Absent?</TableCell>
+              </TableRow>
+            </TableHead>
+            <EmpHours userid={props.match.params.id} />
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 }

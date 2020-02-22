@@ -13,15 +13,17 @@ import DashComponent from "./components/DashComponent";
 import SignInSide from "./components/SignIn";
 import adminSchedule from "./components/adminSchedule";
 import AdminTimeOff from "./components/ApproveTimeOff";
+import Sidebar from "./components/smallerComponents/Sidebar";
+import CreateEmployee from "./components/CreateEmployee";
 
 function App() {
   return (
     <div>
       <Router>
-        <AppHeader />
         <Switch>
-          <Route exact path="/" component={DashComponent} />
-          <Route path="/schedule" component={Schedule} />
+          <Route exact path="/" component={SignInSide} />
+          <Route path="/dashboard" component={DashComponent} />
+          <Route path="/schedule/:id" component={Schedule} />
           <Route path="/timeoff" component={TimeOff} />
           <Route path="/signin" component={SignInSide} />
           <Route path="/documents" component={Documents} />
@@ -31,10 +33,9 @@ function App() {
           <Route exact path="/admin" component={AdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
           <Route path="/admin/annoucements" component={AdminDash} />
-          <Route path="/admin/newemployee" component={AdminDash} />
+          <Route path="/admin/newemployee" component={CreateEmployee} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
-          <Route path="/admin/createSchedule/:id" component={adminSchedule} />       
-
+          <Route path="/admin/createSchedule/:id" component={adminSchedule} />
         </Switch>
       </Router>
     </div>

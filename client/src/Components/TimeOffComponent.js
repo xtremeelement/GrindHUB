@@ -10,7 +10,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from "@material-ui/pickers";
-
+import Sidebar from "./smallerComponents/Sidebar";
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -43,41 +43,44 @@ export default function TimeOff() {
   };
 
   return (
-    <div className={classes.formDecor}>
-      <Button component={Link} to="/" style={{ color: "white" }}>
-        -Back
-      </Button>
-      <form className={classes.container} noValidate>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Grid container justify="space-around">
-            <KeyboardDatePicker
-              disableToolbar
-              variant="inline"
-              format="MM/dd/yyyy"
-              margin="normal"
-              id="date-picker-inline"
-              label="Date picker inline"
-              value={selectedDate}
-              onChange={handleDateChange}
-              KeyboardButtonProps={{
-                "aria-label": "change date"
-              }}
-            />
-          </Grid>
-        </MuiPickersUtilsProvider>
-        <TextField
-          id="standard-basic"
-          label="Standard"
-          style={{ margin: "0 auto", display: "block" }}
-        />
-        <br />
-        <Button
-          variant="contained"
-          style={{ margin: "0 auto", display: "block" }}
-        >
-          Submit
+    <div>
+      <Sidebar />
+      <div className={classes.formDecor}>
+        <Button component={Link} to="/dashboard" style={{ color: "white" }}>
+          -Back
         </Button>
-      </form>
+        <form className={classes.container} noValidate>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Grid container justify="space-around">
+              <KeyboardDatePicker
+                disableToolbar
+                variant="inline"
+                format="MM/dd/yyyy"
+                margin="normal"
+                id="date-picker-inline"
+                label="Date picker inline"
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                  "aria-label": "change date"
+                }}
+              />
+            </Grid>
+          </MuiPickersUtilsProvider>
+          <TextField
+            id="standard-basic"
+            label="Standard"
+            style={{ margin: "0 auto", display: "block" }}
+          />
+          <br />
+          <Button
+            variant="contained"
+            style={{ margin: "0 auto", display: "block" }}
+          >
+            Submit
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
