@@ -46,10 +46,13 @@ router.get("/employeeInfo/:empID", (req, res) => {
 });
 
 router.get("/admin/daysOff", (req, res) => {
-  pool.query("SELECT * FROM days_off", (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
+  pool.query(
+    "SELECT * FROM days_off INNER JOIN Employee on days_off.user_id = Employee.userID",
+    (err, result) => {
+      if (err) throw err;
+      res.send(result);
+    }
+  );
 });
 
 router.put("/employeeInfo/", (req, res) => {
@@ -85,13 +88,26 @@ router.post("/admin/newEmp", (req, res) => {
   );
 });
 
-router.put("/admin/approve/:id", (req, res) => {
-  console.log(req.params.id);
-  res.status(200);
+router.put("/admin/approve/:req_id", (req, res) => {
+  console.log(req.params.req_id);
+  pool.query(
+    "UPDATE days_off SET approved=1 WHERE req_id=?",
+    req.params.req_id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.end();
+    }
+  );
 });
 
-router.put("/admin/deny/:id", (req, res) => {
-  console.log(req.params.id);
-  res.status(200);
+router.put("/admin/deny/:req_id", (req, res) => {
+  pool.query(
+    "UPDATE days_off SET approved=0 WHERE req_id=?",
+    req.params.req_id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.end();
+    }
+  );
 });
 module.exports = router;
