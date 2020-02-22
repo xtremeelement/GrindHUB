@@ -3,8 +3,6 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 
 export default function EmpHours({ userid }) {
   let [AllHours, setAllHours] = useState([]);
@@ -16,6 +14,15 @@ export default function EmpHours({ userid }) {
       setLoading(false);
     });
   }, []);
+
+  const convertTime = timeString => {
+    var H = +timeString.substr(0, 2);
+    var h = H % 12 || 12;
+    var ampm = H < 12 || H === 24 ? "AM" : "PM";
+    timeString = h + timeString.substr(2, 3) + ampm;
+
+    return timeString;
+  };
 
   if (loading) {
     return (
@@ -37,6 +44,9 @@ export default function EmpHours({ userid }) {
     return (
       <TableBody>
         {AllHours.map(schedule => {
+          let date = new Date(schedule.day_work).toDateString();
+          let start = convertTime(schedule.start);
+          let end = convertTime(schedule.end);
           return (
             <TableRow key={schedule.schedule_id}>
               {/* <TableCell align="left">
@@ -47,9 +57,9 @@ export default function EmpHours({ userid }) {
                   {name}
                 </Button>
               </TableCell> */}
-              <TableCell align="right">{schedule.day_work}</TableCell>
-              <TableCell align="right">{schedule.start}</TableCell>
-              <TableCell align="right">{schedule.end}</TableCell>
+              <TableCell align="right">{date}</TableCell>
+              <TableCell align="right">{start}</TableCell>
+              <TableCell align="right">{end}</TableCell>
               <TableCell align="right">{schedule.tardy}</TableCell>
               <TableCell align="right">{schedule.present}</TableCell>
             </TableRow>
