@@ -78,7 +78,6 @@ export default function Sidebar() {
     if (text === "Home") {
       return "/dashboard";
     } else if (text === "My Schedule") {
-      console.log(text);
       return "/schedule/1";
     } else if (text == "My Documents") {
       return "/documents";
@@ -104,7 +103,6 @@ export default function Sidebar() {
         </IconButton>
       );
     } else if (text === "My Schedule") {
-      console.log(text);
       return (
         <IconButton component={Link} to="/schedule/1">
           <AccessTime className={classes.iconColor} />

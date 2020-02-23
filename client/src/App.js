@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/" component={SignInSide} />
           <Route path="/dashboard" component={DashComponent} />
           <Route path="/schedule/:id" component={Schedule} />
-          <Route path="/timeoff" component={TimeOff} />
+          <Route path="/timeoff/:id" component={TimeOff} />
           <Route path="/signin" component={SignInSide} />
           <Route path="/documents" component={Documents} />
           <Route path="/announcements" component={NewsAlerts} />

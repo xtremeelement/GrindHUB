@@ -123,4 +123,31 @@ router.post("/admin/submitSchedule/:id", (req, res) => {
     }
   );
 });
+
+router.post("/requestday/:id", (req, res) => {
+  console.log(req.body);
+  let id = req.params.id;
+  let day_req = req.body[0].day_req;
+  let emp_reason = req.body[0].emp_reason;
+  pool.query(
+    "INSERT INTO days_off(user_id,day_req, emp_reason) VALUES(?,?,?)",
+    [id, day_req, emp_reason],
+    (err, result) => {
+      if (err) console.log(err);
+      res.end();
+    }
+  );
+});
+
+router.get("/requesteddays/:id", (req, res) => {
+  let id = req.params.id;
+  pool.query(
+    "SELECT * FROM days_off WHERE user_id=? ORDER BY day_req DESC",
+    id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.send(result);
+    }
+  );
+});
 module.exports = router;
