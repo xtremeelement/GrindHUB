@@ -49,14 +49,6 @@ export default function EmpHours({ userid }) {
           let end = convertTime(schedule.end);
           return (
             <TableRow key={schedule.schedule_id}>
-              {/* <TableCell align="left">
-                <Button
-                  component={Link}
-                  to={`/admin/createSchedule/${schedule.schedule_id}`}
-                >
-                  {name}
-                </Button>
-              </TableCell> */}
               <TableCell align="right">{date}</TableCell>
               <TableCell align="right">{start}</TableCell>
               <TableCell align="right">{end}</TableCell>
