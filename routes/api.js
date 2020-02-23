@@ -2,13 +2,19 @@ const express = require("express");
 const mysql = require("mysql");
 const router = express.Router();
 
-var pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "GrindhubDB"
-});
+let pool;
+
+if (process.env.JAWSDB_URL) {
+  pool = mysql.createPool(process.env.JAWSDB_URL);
+} else {
+  pool = mysql.createPool({
+    connectionLimit: 10,
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "GrindhubDB"
+  });
+}
 
 router.get("/findAllEmps", (req, res) => {
   pool.query("SELECT * FROM Employee", (error, results) => {
@@ -20,7 +26,7 @@ router.get("/findAllEmps", (req, res) => {
 router.get("/employeeSchedule/:id", (req, res) => {
   const user = req.params.id;
   pool.query(
-    "SELECT * FROM Schedule WHERE UserID =?",
+    "SELECT * FROM Schedule WHERE UserID =? order by day_work desc limit 7",
     user,
     (error, results) => {
       if (error) throw error;
@@ -143,6 +149,18 @@ router.get("/requesteddays/:id", (req, res) => {
   let id = req.params.id;
   pool.query(
     "SELECT * FROM days_off WHERE user_id=? ORDER BY day_req DESC",
+    id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.send(result);
+    }
+  );
+});
+
+router.get("/schedsnap/:id", (req, res) => {
+  let id = req.params.id;
+  pool.query(
+    "select * from Schedule where day_work between now() and DATE_ADD(now(), interval 7 day) and userID = ? limit 3",
     id,
     (err, result) => {
       if (err) console.log(err);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -29,7 +29,7 @@ import { Link } from "react-router-dom";
 
 // bg color #182231  side color #3F51B5
 
-const drawerWidth = 240;
+const drawerWidth = "15%";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 1
   },
   drawerPaper: {
     width: drawerWidth,
@@ -71,76 +71,68 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Sidebar() {
+export default function Sidebar({ id }) {
   const classes = useStyles();
 
   const linkHandler = text => {
     if (text === "Home") {
-      return "/dashboard";
+      return `/dashboard/${id}`;
     } else if (text === "My Schedule") {
-      return "/schedule/1";
+      return `/schedule/${id}`;
     } else if (text == "My Documents") {
-      return "/documents";
-    } else if (text == "My Pay") {
-      return "/";
+      return `/documents/${id}`;
     } else if (text == "My Info") {
-      return "/contact/1";
+      return `/contact/${id}`;
     } else if (text == "Benefits") {
-      return "/";
+      return `/documents/${id}`;
     } else if (text == "Request Time") {
-      return "/timeoff/1";
+      return `/timeoff/${id}`;
     } else if (text == "Announcements") {
-      return "/annoucements";
+      return `/annoucements/${id}`;
     } else {
-      return "/inbox";
+      return `/inbox/${id}`;
     }
   };
   const iconHandler = text => {
     if (text === "Home") {
       return (
-        <IconButton component={Link} to="/dashboard">
+        <IconButton component={Link} to={`/dashboard/${id}`}>
           <Home className={classes.iconColor} />
         </IconButton>
       );
     } else if (text === "My Schedule") {
       return (
-        <IconButton component={Link} to="/schedule/1">
+        <IconButton component={Link} to={`/schedule/${id}`}>
           <AccessTime className={classes.iconColor} />
         </IconButton>
       );
     } else if (text == "My Documents") {
       return (
-        <IconButton component={Link} to="/documents">
+        <IconButton component={Link} to={`/documents/${id}`}>
           <FolderShared className={classes.iconColor} />
-        </IconButton>
-      );
-    } else if (text == "My Pay") {
-      return (
-        <IconButton>
-          <LocalAtm className={classes.iconColor} />
         </IconButton>
       );
     } else if (text == "My Info") {
       return (
-        <IconButton component={Link} to="/contact/1">
+        <IconButton component={Link} to={`/contact/${id}`}>
           <ContactPhone className={classes.iconColor} />
         </IconButton>
       );
     } else if (text == "Benefits") {
       return (
-        <IconButton>
+        <IconButton component={Link} to={`/documents/${id}`}>
           <Star className={classes.iconColor} />
         </IconButton>
       );
     } else if (text == "Request Time") {
       return (
-        <IconButton component={Link} to="/timeoff/1">
+        <IconButton component={Link} to={`/timeoff/${id}`}>
           <Event className={classes.iconColor} />
         </IconButton>
       );
     } else if (text == "Announcements") {
       return (
-        <IconButton component={Link} to="/annoucements">
+        <IconButton component={Link} to={`/annoucements/${id}`}>
           <Announcement className={classes.iconColor} />
         </IconButton>
       );
@@ -163,7 +155,7 @@ export default function Sidebar() {
             color="primary"
             aria-label="menu"
             component={Link}
-            to="/"
+            to={`/dashboard/${id}`}
           >
             <Settings className={classes.menuButton} />
           </IconButton>
@@ -198,7 +190,7 @@ export default function Sidebar() {
             "My Info",
             "My Documents",
             "Announcements",
-            "Benefits",
+            // "Benefits",
             "Inbox"
           ].map((text, index) => (
             <ListItem button key={text}>
