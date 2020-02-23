@@ -16,7 +16,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap",
     backgroundColor: "white",
-    textAlign: "center"
+    padding: "10%",
+    justifyContent: "center"
+
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -25,9 +27,9 @@ const useStyles = makeStyles(theme => ({
   },
   formDecor: {
     display: "block",
+    width: "50%",
+    margin: "10% auto",
 
-    width: "60%",
-    margin: "10% auto"
   }
 }));
 
@@ -58,24 +60,24 @@ export default function TimeOff() {
                 format="MM/dd/yyyy"
                 margin="normal"
                 id="date-picker-inline"
-                label="Date picker inline"
+                label="Select Day Off"
                 value={selectedDate}
                 onChange={handleDateChange}
                 KeyboardButtonProps={{
                   "aria-label": "change date"
                 }}
               />
+                 <TextField
+            id="standard-basic"
+            label="Reason For Absence"
+            style={{ margin: "0 auto", marginTop: "18px", width: "120%"}}
+          />
             </Grid>
           </MuiPickersUtilsProvider>
-          <TextField
-            id="standard-basic"
-            label="Standard"
-            style={{ margin: "0 auto", display: "block" }}
-          />
-          <br />
+       
           <Button
             variant="contained"
-            style={{ margin: "0 auto", display: "block" }}
+            style={{ margin: "0 auto", margin: "3%", display: "block", marginTop: "10%"}}
           >
             Submit
           </Button>
