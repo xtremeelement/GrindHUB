@@ -27,7 +27,7 @@ export default function UserProfile(props) {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar id={props.match.params.id} />
       <div className={classes.root}>
         <Button component={Link} to="/dashboard" style={{ color: "white" }}>
           -Back
@@ -47,7 +47,7 @@ export default function UserProfile(props) {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs>
-            <EmpInfo empID={props.match.params.empID} />
+            <EmpInfo empID={props.match.params.id} />
           </Grid>
         </Grid>
       </div>

@@ -1,14 +1,29 @@
 const express = require("express");
 const mysql = require("mysql");
 const router = express.Router();
+const Nexmo = require("nexmo");
 
-var pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "GrindhubDB"
-});
+let pool;
+
+if (process.env.JAWSDB_URL) {
+  pool = mysql.createPool(process.env.JAWSDB_URL);
+} else {
+  pool = mysql.createPool({
+    connectionLimit: 10,
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "GrindhubDB"
+  });
+}
+
+const nexmo = new Nexmo(
+  {
+    apiKey: "7560d810",
+    apiSecret: "ecKcWSvQ44JwBlls"
+  },
+  { debug: true }
+);
 
 router.get("/findAllEmps", (req, res) => {
   pool.query("SELECT * FROM Employee", (error, results) => {
@@ -20,7 +35,7 @@ router.get("/findAllEmps", (req, res) => {
 router.get("/employeeSchedule/:id", (req, res) => {
   const user = req.params.id;
   pool.query(
-    "SELECT * FROM Schedule WHERE UserID =?",
+    "SELECT * FROM Schedule WHERE UserID =? order by day_work desc limit 7",
     user,
     (error, results) => {
       if (error) throw error;
@@ -96,6 +111,26 @@ router.put("/admin/approve/:req_id", (req, res) => {
     (err, result) => {
       if (err) console.log(err);
       res.end();
+      // pool.query(
+      //   "SELECT day_req from days_off where req_id=? ",
+      //   req.params.req_id,
+      //   (error, data) => {
+      //     if (error) console.log(error);
+      //     nexmo.message.sendSms(
+      //       "13024868348",
+      //       "14074939784",
+      //       "Your request was approved",
+      //       { type: "unicode" },
+      //       (errors, responseData) => {
+      //         if (errors) {
+      //           console.log(errors);
+      //         } else {
+      //           console.log("text sent");
+      //         }
+      //       }
+      //     );
+      //   }
+      // );
     }
   );
 });
@@ -143,6 +178,18 @@ router.get("/requesteddays/:id", (req, res) => {
   let id = req.params.id;
   pool.query(
     "SELECT * FROM days_off WHERE user_id=? ORDER BY day_req DESC",
+    id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.send(result);
+    }
+  );
+});
+
+router.get("/schedsnap/:id", (req, res) => {
+  let id = req.params.id;
+  pool.query(
+    "select * from Schedule where day_work between now() and DATE_ADD(now(), interval 7 day) and userID = ? limit 3",
     id,
     (err, result) => {
       if (err) console.log(err);

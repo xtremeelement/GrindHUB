@@ -31,7 +31,7 @@ export default function Schedule(props) {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar id={props.match.params.id} />
       <div className={classes.tableWidth}>
         <Button component={Link} to="/dashboard" style={{ color: "white" }}>
           -Back
