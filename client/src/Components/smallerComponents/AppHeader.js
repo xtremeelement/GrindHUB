@@ -24,6 +24,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//this is the nav bar that heads every page
+
 export default function AppHeader() {
   const classes = useStyles();
 

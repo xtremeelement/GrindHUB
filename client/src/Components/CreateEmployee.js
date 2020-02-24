@@ -9,6 +9,7 @@ import Adminside from "./smallerComponents/Adminside";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+//adds a new employee
 export default function CreateEmployee() {
   const [lName, setLName] = useState("");
   const [fName, setFName] = useState("");

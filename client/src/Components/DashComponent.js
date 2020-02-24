@@ -10,6 +10,8 @@ import DashNewsCard from "./smallerComponents/DashNewsCard";
 import DashEmployeeotm from "./smallerComponents/DashEmployeeotm";
 import NewAdminDashTable from "./smallerComponents/NewAdminDashTable";
 
+//this is the main dashboard for employees
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",

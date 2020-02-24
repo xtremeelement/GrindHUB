@@ -37,6 +37,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+//this is the employee of the month card for the user dash
+
 export default function RecipeReviewCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -60,7 +62,7 @@ export default function RecipeReviewCard() {
       <CardMedia style={{height:"30%"}}
         className={classes.media}
         image="https://www.4ccf.org/wp-content/uploads/2016/07/employee-1.png"
-        title="Tatro"
+        title="Chad"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

@@ -46,6 +46,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//building a to-do list component
+
 export default function AdminTodo() {
     const classes = useStyles();
 

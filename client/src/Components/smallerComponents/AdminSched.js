@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%"
   }
 }));
+//exporting the component where admins can view shifts of the day
 
 export default function AdminSched({ id }) {
   const classes = useStyles();
@@ -84,6 +85,8 @@ export default function AdminSched({ id }) {
               </TableRow>
             </TableHead>
             <TableBody>
+       
+        {/* mapping out the info for the table using entries from the database */}
               {schedData.map(schedule => {
                 let name = schedule.first_name + " " + schedule.last_name;
                 let date = new Date(schedule.day_work).toDateString();

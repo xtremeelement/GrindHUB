@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
+  //this function builds out the employee profile
 
 export default function EmpInfo({empID}) {
     const classes = useStyles();

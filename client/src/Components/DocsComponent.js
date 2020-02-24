@@ -27,6 +27,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//a page where users can access important, work-related documents
+
 export default function Documents() {
   const classes = useStyles();
 

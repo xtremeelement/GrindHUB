@@ -1,4 +1,4 @@
-use database GrindhubDB;
+use GrindhubDB;
 
 
 INSERT INTO Announcements (description)

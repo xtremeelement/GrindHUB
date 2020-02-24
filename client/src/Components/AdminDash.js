@@ -30,6 +30,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//the admin dashboard
+
 export default function DashComponent(props) {
   const classes = useStyles();
 
@@ -46,16 +48,14 @@ export default function DashComponent(props) {
         <Grid item xs={8}>
           <AdminSched id={props.match.params.id} />
         </Grid>
-        {/* <Grid item md={6}>
-          <DashNewsCard />
-        </Grid> */}
-        <Grid item md={4}>
-          <DashNewsCard />
-        </Grid>
 
-        {/* <Grid item md={12}>
-          <RequestsSnap id={props.match.params.id} />
-        </Grid> */}
+       
+         <Grid item md={4}>
+          <DashNewsCard/>
+          
+        </Grid>
+        
+
       </Grid>
       <Grid
         container
