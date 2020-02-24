@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const router = express.Router();
 const Nexmo = require("nexmo");
 
-//all of the MySQL CRUD 
+//all of the MySQL CRUD
 
 let pool;
 
@@ -80,7 +80,7 @@ router.put("/employeeInfo/", (req, res) => {
     [number, user],
     (err, result) => {
       if (err) throw err;
-      res.status(200);
+      res.end();
     }
   );
 });
