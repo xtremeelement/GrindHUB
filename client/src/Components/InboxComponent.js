@@ -43,6 +43,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//a built-in mailer tool for admin/employee communication and memos
+
 export default function InboxComponent() {
   const classes = useStyles();
 

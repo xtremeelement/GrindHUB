@@ -13,17 +13,15 @@ import DashComponent from "./components/DashComponent";
 import SignInSide from "./components/SignIn";
 import adminSchedule from "./components/adminSchedule";
 import AdminTimeOff from "./components/ApproveTimeOff";
-import Sidebar from "./components/smallerComponents/Sidebar";
 import CreateEmployee from "./components/CreateEmployee";
 
+//routes and rendering of all major pages
 function App() {
   return (
     <div>
       <Router>
         <Switch>
           <Route exact path="/" component={SignInSide} />
-
-
           <Route path="/dashboard/:id" component={DashComponent} />
           <Route path="/schedule/:id" component={Schedule} />
           <Route path="/timeoff/:id" component={TimeOff} />

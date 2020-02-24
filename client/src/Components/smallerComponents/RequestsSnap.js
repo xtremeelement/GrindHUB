@@ -43,6 +43,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//a current list of time off requests
+
 export default function SchedSnap({ id }) {
   const classes = useStyles();
   const [schedData, setSchedData] = useState([]);
