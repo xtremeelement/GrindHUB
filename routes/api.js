@@ -80,7 +80,7 @@ router.put("/employeeInfo/", (req, res) => {
     [number, user],
     (err, result) => {
       if (err) throw err;
-      res.status(200);
+      res.end();
     }
   );
 });
