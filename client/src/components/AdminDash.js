@@ -7,7 +7,6 @@ import AdminSched from "./smallerComponents/AdminSched";
 import RequestsSnap from "./smallerComponents/RequestsSnap";
 import Grid from "@material-ui/core/Grid";
 import DashNewsCard from "./smallerComponents/DashNewsCard";
-import AdminDashChecklist from "./smallerComponents/AdminDashChecklist";
 import AdminTodo from "./smallerComponents/AdminTodo";
 
 const useStyles = makeStyles(theme => ({
