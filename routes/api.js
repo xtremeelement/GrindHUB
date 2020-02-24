@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const router = express.Router();
+const Nexmo = require("nexmo");
 
 let pool;
 
@@ -15,6 +16,14 @@ if (process.env.JAWSDB_URL) {
     database: "GrindhubDB"
   });
 }
+
+const nexmo = new Nexmo(
+  {
+    apiKey: "7560d810",
+    apiSecret: "ecKcWSvQ44JwBlls"
+  },
+  { debug: true }
+);
 
 router.get("/findAllEmps", (req, res) => {
   pool.query("SELECT * FROM Employee", (error, results) => {
@@ -102,6 +111,26 @@ router.put("/admin/approve/:req_id", (req, res) => {
     (err, result) => {
       if (err) console.log(err);
       res.end();
+      // pool.query(
+      //   "SELECT day_req from days_off where req_id=? ",
+      //   req.params.req_id,
+      //   (error, data) => {
+      //     if (error) console.log(error);
+      //     nexmo.message.sendSms(
+      //       "13024868348",
+      //       "14074939784",
+      //       "Your request was approved",
+      //       { type: "unicode" },
+      //       (errors, responseData) => {
+      //         if (errors) {
+      //           console.log(errors);
+      //         } else {
+      //           console.log("text sent");
+      //         }
+      //       }
+      //     );
+      //   }
+      // );
     }
   );
 });
