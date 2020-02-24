@@ -206,6 +206,18 @@ router.get("/requesteddays/:id", (req, res) => {
   );
 });
 
+router.get("/previousrequests/:id", (req, res) => {
+  let id = req.params.id;
+  pool.query(
+    "SELECT * FROM days_off WHERE user_id=? ORDER BY day_req ASC LIMIT 2 ",
+    id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.send(result);
+    }
+  );
+});
+
 router.get("/schedsnap/:id", (req, res) => {
   let id = req.params.id;
   pool.query(
@@ -214,6 +226,17 @@ router.get("/schedsnap/:id", (req, res) => {
     (err, result) => {
       if (err) console.log(err);
       res.send(result);
+    }
+  );
+});
+
+router.get("/admin/emptoday", (req, res) => {
+  pool.query(
+    "select * from Schedule inner join Employee where Schedule.UserID = Employee.userID order by day_work asc limit 4 ",
+    (err, result) => {
+      if (err) console.log(err);
+      res.send(result);
+      console.log(result);
     }
   );
 });
