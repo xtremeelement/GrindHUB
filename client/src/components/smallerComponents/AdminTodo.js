@@ -1,4 +1,3 @@
-
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -6,17 +5,14 @@ import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import { CheckCircle, Done } from "@material-ui/icons";
 import Table from "@material-ui/core/Table";
-import React from 'react';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import DeleteIcon from '@material-ui/icons/Delete';
+import React from "react";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import ListItemText from "@material-ui/core/ListItemText";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 //building a to-do list component
 
 export default function AdminTodo() {
-    const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <Card className={classes.root}>
@@ -62,31 +58,31 @@ export default function AdminTodo() {
         title="To-Do List"
       />
       <CardContent>
-   
-          <Table className={classes.table} aria-label="simple table">
+        <Table className={classes.table} aria-label="simple table">
           <List>
-              
-                <ListItem>
-                  <ListItemAvatar>
-                    <Avatar style={{width:"20px", height: "20px", color: "black", backgroundColor: "white"}}>
-                      <Done />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary="Approve Time Off"
-                  
-                  />
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="delete">
-                      <DeleteIcon />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              
-            </List>
-          </Table>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    color: "black",
+                    backgroundColor: "white"
+                  }}
+                >
+                  <Done />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Approve Time Off" />
+              <ListItemSecondaryAction>
+                <IconButton edge="end" aria-label="delete">
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+        </Table>
         <br />
-       
       </CardContent>
     </Card>
   );

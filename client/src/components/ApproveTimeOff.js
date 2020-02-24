@@ -47,8 +47,18 @@ export default function AdminTimeOff() {
                 <TableCell>Employee</TableCell>
                 <TableCell align="right">Date Requested</TableCell>
                 <TableCell align="right">Reason</TableCell>
-                <TableCell align="right">Approve ✓</TableCell>
-                <TableCell align="right">Deny ❌</TableCell>
+                <TableCell align="right">
+                  Approve{" "}
+                  <span role="img" aria-label="check">
+                    ✓
+                  </span>
+                </TableCell>
+                <TableCell align="right">
+                  Deny{" "}
+                  <span role="img" aria-label="x">
+                    ❌
+                  </span>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TimeOffReq />

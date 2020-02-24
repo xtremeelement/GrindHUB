@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
 import { Schedule } from "@material-ui/icons";
 import axios from "axios";
 import Table from "@material-ui/core/Table";
@@ -85,11 +84,9 @@ export default function AdminSched({ id }) {
               </TableRow>
             </TableHead>
             <TableBody>
-       
-        {/* mapping out the info for the table using entries from the database */}
+              {/* mapping out the info for the table using entries from the database */}
               {schedData.map(schedule => {
                 let name = schedule.first_name + " " + schedule.last_name;
-                let date = new Date(schedule.day_work).toDateString();
                 let start = convertTime(schedule.start);
                 let end = convertTime(schedule.end);
                 return (

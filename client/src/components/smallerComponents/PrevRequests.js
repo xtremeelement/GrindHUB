@@ -2,15 +2,14 @@ import React from "react";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import axios from "axios";
 
 //requests for days off and the ability to approve or deny those requests
 
 export default function PrevRequests({ requests }) {
   function handleStatus(status) {
-    if (status == true) {
+    if (status === true) {
       return "Approved";
-    } else if (status == false) {
+    } else if (status === false) {
       return "Denied";
     } else {
       return "Pending Review";

@@ -4,7 +4,6 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom";
 
 //this loads the rows into the time-off requests table
 
@@ -63,7 +62,10 @@ export default function TimeOffReq() {
                       ApproveTime(request.req_id);
                     }}
                   >
-                    Approve ✓
+                    Approve{" "}
+                    <span role="img" aria-label="checkmark">
+                      ✓
+                    </span>
                   </Button>
                 </TableCell>
                 <TableCell align="right">
@@ -73,11 +75,16 @@ export default function TimeOffReq() {
                       DenyTime(request.req_id);
                     }}
                   >
-                    Deny ❌
+                    Deny{" "}
+                    <span role="img" aria-label="x">
+                      ❌
+                    </span>
                   </Button>
                 </TableCell>
               </TableRow>
             );
+          } else {
+            return <TableRow>Null</TableRow>;
           }
         })}
       </TableBody>
