@@ -49,19 +49,11 @@ export default function SchedSnap({ id }) {
   const classes = useStyles();
   const [schedData, setSchedData] = useState([]);
 
-  const convertTime = timeString => {
-    var H = +timeString.substr(0, 2);
-    var h = H % 12 || 12;
-    var ampm = H < 12 || H === 24 ? "AM" : "PM";
-    timeString = h + timeString.substr(2, 3) + ampm;
-
-    return timeString;
-  };
-
   useEffect(() => {
-    // axios.get(`/api/schedsnap/${id}`).then(res => {
-    //   setSchedData(res.data);
-    // });
+    axios.get(`/api/previousrequests/${id}`).then(res => {
+      setSchedData(res.data);
+      console.log(res.data);
+    });
   }, []);
 
   return (
@@ -72,7 +64,7 @@ export default function SchedSnap({ id }) {
             <Event />
           </Avatar>
         }
-        title="Previous Requests"
+        title="Upcoming Requests"
       />
       <CardContent>
         <TableContainer component={Paper}>
@@ -85,18 +77,18 @@ export default function SchedSnap({ id }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {/* {schedData.map(schedule => {
-                let date = new Date(schedule.day_work).toDateString();
-                let start = convertTime(schedule.start);
-                let end = convertTime(schedule.end);
+              {schedData.map(schedule => {
+                let date = new Date(schedule.day_req).toDateString();
+                let start = schedule.emp_reason;
+                let end = schedule.approved;
                 return (
                   <TableRow>
                     <TableCell>{date}</TableCell>
-                    <TableCell align="right">{start}</TableCell>
-                    <TableCell align="right">{start}</TableCell>
+                    <TableCell>{start}</TableCell>
+                    <TableCell align="right">{end}</TableCell>
                   </TableRow>
                 );
-              })} */}
+              })}
             </TableBody>
           </Table>
         </TableContainer>
