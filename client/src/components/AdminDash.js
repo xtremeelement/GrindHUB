@@ -2,7 +2,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Adminside from "./smallerComponents/Adminside";
-import "./styles.css";
 import AdminSched from "./smallerComponents/AdminSched";
 import Grid from "@material-ui/core/Grid";
 import DashNewsCard from "./smallerComponents/DashNewsCard";
