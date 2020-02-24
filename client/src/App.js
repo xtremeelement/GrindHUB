@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfileComponent";
 import NewsAlerts from "./components/NewsComponent";
 import Documents from "./components/DocsComponent";
-import AdminDash from "./components/AdminDash";
+import NewAdminDash from "./components/NewAdminDash";
 import AllEmployees from "./components/AdminEmployees";
 import InboxComp from "./components/InboxComponent";
-import DashComponent from "./components/DashComponent";
+import NewUserDash from "./components/NewUserComponent";
 import SignInSide from "./components/SignIn";
 import adminSchedule from "./components/adminSchedule";
 import AdminTimeOff from "./components/ApproveTimeOff";
@@ -22,7 +22,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={SignInSide} />
-          <Route path="/dashboard" component={DashComponent} />
+          <Route path="/dashboard" component={NewUserDash} />
           <Route path="/schedule/:id" component={Schedule} />
           <Route path="/timeoff/:id" component={TimeOff} />
           <Route path="/signin" component={SignInSide} />
@@ -30,9 +30,9 @@ function App() {
           <Route path="/announcements" component={NewsAlerts} />
           <Route path="/inbox" component={InboxComp} />
           <Route path="/contact/:empID" component={UserProfile} />
-          <Route exact path="/admin" component={AdminDash} />
+          <Route exact path="/admin" component={NewAdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
-          <Route path="/admin/annoucements" component={AdminDash} />
+          <Route path="/admin/annoucements" component={NewAdminDash} />
           <Route path="/admin/newemployee" component={CreateEmployee} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
           <Route path="/admin/createSchedule/:id" component={adminSchedule} />
