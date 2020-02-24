@@ -22,6 +22,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={SignInSide} />
+
+
           <Route path="/dashboard/:id" component={DashComponent} />
           <Route path="/schedule/:id" component={Schedule} />
           <Route path="/timeoff/:id" component={TimeOff} />

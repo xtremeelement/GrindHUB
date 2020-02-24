@@ -1,114 +1,71 @@
 //importing all of the necessary elements from the material UI package
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import {
-  AccessTime,
-  Event,
-  Announcement,
-  ContactPhone
-} from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import "./styles.css";
-import { Link } from "react-router-dom";
 import Adminside from "./smallerComponents/Adminside";
+import "./styles.css";
+import SchedSnap from "./smallerComponents/SchedSnap";
+import RequestsSnap from "./smallerComponents/RequestsSnap";
+import Grid from "@material-ui/core/Grid";
+import DashNewsCard from "./smallerComponents/DashNewsCard";
+import NewAdminDashTable from "./smallerComponents/NewAdminDashTable";
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-
     "& > *": {
       width: theme.spacing(18),
       height: theme.spacing(18),
-      margin: "auto",
-      backgroundColor: "#white"
-    }
+      margin: "35px auto",
+      backgroundColor: "white"
+    },
+    width: "90%"
   },
 
-  girthy: {
-    width: "2em",
-    height: "2em",
-    color: "#9F7CE1"
-  },
-
-  papery: {
-    marginTop: "10px",
-    fontSize: "20px",
-    fontFamily: "Roboto"
-  },
   container: {
-    width: "60%",
+    width: "70%",
     height: "auto",
     margin: "0 auto",
-    marginTop: "150px"
+    marginTop: "3%",
+    marginLeft: "20%"
   }
 }));
 
-export default function AdminDash() {
+export default function DashComponent(props) {
   const classes = useStyles();
 
   return (
     <div>
-      <Adminside />
-      <div className={classes.container}>
-        <Button
-          component={Link}
-          to="/"
-          style={{ color: "white", fontFamily: "Roboto" }}
-        >
-          -Back to Main
-        </Button>
-        <div className={classes.root}>
-          <Paper elevation={3}>
-            <IconButton
-              component={Link}
-              to="/admin/schedule"
-              label="Create Schedule"
-            >
-              <AccessTime
-                style={{ fill: "black" }}
-                className={classes.girthy}
-              />
-            </IconButton>
+      <Adminside id={props.match.params.id} />
 
-            <h5 className={classes.papery}>Manage Employees</h5>
-          </Paper>
-          <Paper elevation={3}>
-            <IconButton component={Link} to="/admin/timeoff" label="Time Off">
-              <Event style={{ fill: "black" }} className={classes.girthy} />
-            </IconButton>
-            <h5 className={classes.papery}>Time Off Requests</h5>
-          </Paper>
-          <Paper elevation={3}>
-            <IconButton
-              component={Link}
-              to="/admin/announcements"
-              label="Announcements"
-            >
-              <Announcement
-                style={{ fill: "black" }}
-                className={classes.girthy}
-              />
-            </IconButton>
-            <h5 className={classes.papery}>Create Annoucement</h5>
-          </Paper>
-          <Paper>
-            <IconButton
-              component={Link}
-              to="/admin/newemployee"
-              label="new employee"
-            >
-              <ContactPhone
-                style={{ fill: "black" }}
-                className={classes.girthy}
-              />
-            </IconButton>
-            <h5 className={classes.papery}>Create Employee</h5>
-          </Paper>
-        </div>
-      </div>
+      <Grid container className={classes.container} spacing={10} direction="row">
+     
+        <Grid item xs={8}>
+          <SchedSnap id={props.match.params.id} />
+        </Grid>
+        {/* <Grid item md={6}>
+          <DashNewsCard />
+        </Grid> */}
+         <Grid item md={4}>
+          <DashNewsCard/>
+          
+        </Grid>
+        
+        {/* <Grid item md={12}>
+          <RequestsSnap id={props.match.params.id} />
+        </Grid> */}
+      </Grid>
+      <Grid container style={{marginTop:"-10%"}} className={classes.container} spacing={10} direction="row">
+     
+        <Grid item xs={8}>
+          <RequestsSnap id={props.match.params.id} />
+        </Grid>
+        
+        </Grid>
+        {/* <Grid item md={6}>
+          <DashNewsCard />
+        </Grid> */}
+     
     </div>
   );
 }
