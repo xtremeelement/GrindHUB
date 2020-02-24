@@ -3,11 +3,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Adminside from "./smallerComponents/Adminside";
 import "./styles.css";
-import SchedSnap from "./smallerComponents/SchedSnap";
+import AdminSched from "./smallerComponents/AdminSched";
 import RequestsSnap from "./smallerComponents/RequestsSnap";
 import Grid from "@material-ui/core/Grid";
 import DashNewsCard from "./smallerComponents/DashNewsCard";
-import NewAdminDashTable from "./smallerComponents/NewAdminDashTable";
+import AdminDashChecklist from "./smallerComponents/AdminDashChecklist";
+import AdminTodo from "./smallerComponents/AdminTodo";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,7 +42,7 @@ export default function DashComponent(props) {
       <Grid container className={classes.container} spacing={10} direction="row">
      
         <Grid item xs={8}>
-          <SchedSnap id={props.match.params.id} />
+          <AdminSched id={props.match.params.id} />
         </Grid>
         {/* <Grid item md={6}>
           <DashNewsCard />
@@ -58,13 +59,11 @@ export default function DashComponent(props) {
       <Grid container style={{marginTop:"-10%"}} className={classes.container} spacing={10} direction="row">
      
         <Grid item xs={8}>
-          <RequestsSnap id={props.match.params.id} />
+          <AdminTodo />
         </Grid>
         
         </Grid>
-        {/* <Grid item md={6}>
-          <DashNewsCard />
-        </Grid> */}
+
      
     </div>
   );

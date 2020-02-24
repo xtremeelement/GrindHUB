@@ -44,17 +44,13 @@ export default function DashComponent(props) {
         <Grid item xs={8}>
           <SchedSnap id={props.match.params.id} />
         </Grid>
-        {/* <Grid item md={6}>
-          <DashNewsCard />
-        </Grid> */}
+       
          <Grid item md={4}>
           <DashEmployeeotm/>
           
         </Grid>
         
-        {/* <Grid item md={12}>
-          <RequestsSnap id={props.match.params.id} />
-        </Grid> */}
+  
       </Grid>
       <Grid container style={{marginTop:"-10%"}} className={classes.container} spacing={10} direction="row">
      
@@ -63,13 +59,9 @@ export default function DashComponent(props) {
         </Grid>
         
         </Grid>
-        {/* <Grid item md={6}>
-          <DashNewsCard />
-        </Grid> */}
+  
      
-        {/* <Grid item md={12}>
-          <RequestsSnap id={props.match.params.id} />
-        </Grid> */}
+    
          <Grid container className={classes.container} spacing={2} direction="row">
          <Grid item md={12}>
           <NewAdminDashTable/>

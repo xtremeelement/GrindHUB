@@ -16,6 +16,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 345,
+    height: "120%"
   },
   media: {
     height: 0,
@@ -57,6 +58,7 @@ export default function RecipeReviewCard() {
         subheader="March 13, 2020"
       />
       <CardMedia
+      style={{height:"25%"}}
         className={classes.media}
         image="https://images-na.ssl-images-amazon.com/images/I/51wcC4o1n6L._AC_SX425_.jpg"
         title="Meeting"
