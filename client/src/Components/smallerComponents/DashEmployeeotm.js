@@ -11,11 +11,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 345,
+    height: "125%"
   },
   media: {
     height: 0,
@@ -49,21 +50,21 @@ export default function RecipeReviewCard() {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            <NotificationsIcon/>
+            <EmojiEmotionsIcon/>
           </Avatar>
         }
        
-        title="Meeting Tomorrow"
-        subheader="March 13, 2020"
+        title="Employee of the Month!"
+        subheader="February 14, 2020"
       />
-      <CardMedia
+      <CardMedia style={{height:"30%"}}
         className={classes.media}
-        image="https://images-na.ssl-images-amazon.com/images/I/51wcC4o1n6L._AC_SX425_.jpg"
-        title="Meeting"
+        image="https://www.4ccf.org/wp-content/uploads/2016/07/employee-1.png"
+        title="Tatro"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          All memebers of management are required to attend the team meeting tomorrow at 5:00 PM in room 203. 
+          March's Employee of the month is Chad Smith! Congratulations, Chad! Keep up the good work!
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

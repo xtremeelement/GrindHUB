@@ -6,6 +6,9 @@ import "./styles.css";
 import SchedSnap from "./smallerComponents/SchedSnap";
 import RequestsSnap from "./smallerComponents/RequestsSnap";
 import Grid from "@material-ui/core/Grid";
+import DashNewsCard from "./smallerComponents/DashNewsCard";
+import DashEmployeeotm from "./smallerComponents/DashEmployeeotm";
+import NewAdminDashTable from "./smallerComponents/NewAdminDashTable";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,22 +23,11 @@ const useStyles = makeStyles(theme => ({
     width: "90%"
   },
 
-  girthy: {
-    width: "2em",
-    height: "2em",
-    color: "#9F7CE1"
-  },
-
-  papery: {
-    marginTop: "10px",
-    fontSize: "16px",
-    fontFamily: "Roboto"
-  },
   container: {
     width: "70%",
     height: "auto",
     margin: "0 auto",
-    marginTop: "125px",
+    marginTop: "3%",
     marginLeft: "20%"
   }
 }));
@@ -47,15 +39,40 @@ export default function DashComponent(props) {
     <div>
       <Sidebar id={props.match.params.id} />
 
-      <Grid container className={classes.container} spacing={2} direction="row">
-        <Grid item md={6}>
+      <Grid container className={classes.container} spacing={10} direction="row">
+     
+        <Grid item xs={8}>
           <SchedSnap id={props.match.params.id} />
         </Grid>
-        <Grid item md={6}>
+        {/* <Grid item md={6}>
+          <DashNewsCard />
+        </Grid> */}
+         <Grid item md={4}>
+          <DashEmployeeotm/>
+          
+        </Grid>
+        
+        {/* <Grid item md={12}>
+          <RequestsSnap id={props.match.params.id} />
+        </Grid> */}
+      </Grid>
+      <Grid container style={{marginTop:"-10%"}} className={classes.container} spacing={10} direction="row">
+     
+        <Grid item xs={8}>
           <RequestsSnap id={props.match.params.id} />
         </Grid>
-        <Grid item md={12}>
+        
+        </Grid>
+        {/* <Grid item md={6}>
+          <DashNewsCard />
+        </Grid> */}
+     
+        {/* <Grid item md={12}>
           <RequestsSnap id={props.match.params.id} />
+        </Grid> */}
+         <Grid container className={classes.container} spacing={2} direction="row">
+         <Grid item md={12}>
+          <NewAdminDashTable/>
         </Grid>
       </Grid>
     </div>

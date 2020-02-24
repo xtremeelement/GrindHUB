@@ -45,6 +45,7 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 440,
+    borderRadius: "5px"
   },
 });
 
