@@ -98,7 +98,7 @@ router.post("/admin/newEmp", (req, res) => {
     [first_name, last_name, password, isAdmin, pay_rate, phone_number, email],
     (err, result) => {
       if (err) throw err;
-      res.status(200);
+      res.end();
     }
   );
 });
@@ -111,26 +111,26 @@ router.put("/admin/approve/:req_id", (req, res) => {
     (err, result) => {
       if (err) console.log(err);
       res.end();
-      // pool.query(
-      //   "SELECT day_req from days_off where req_id=? ",
-      //   req.params.req_id,
-      //   (error, data) => {
-      //     if (error) console.log(error);
-      //     nexmo.message.sendSms(
-      //       "13024868348",
-      //       "14074939784",
-      //       "Your request was approved",
-      //       { type: "unicode" },
-      //       (errors, responseData) => {
-      //         if (errors) {
-      //           console.log(errors);
-      //         } else {
-      //           console.log("text sent");
-      //         }
-      //       }
-      //     );
-      //   }
-      // );
+      pool.query(
+        "SELECT day_req from days_off where req_id=? ",
+        req.params.req_id,
+        (error, data) => {
+          if (error) console.log(error);
+          nexmo.message.sendSms(
+            "13024868348",
+            "14074939784",
+            "Your request was approved",
+            { type: "unicode" },
+            (errors, responseData) => {
+              if (errors) {
+                console.log(errors);
+              } else {
+                console.log("text sent");
+              }
+            }
+          );
+        }
+      );
     }
   );
 });
@@ -142,6 +142,26 @@ router.put("/admin/deny/:req_id", (req, res) => {
     (err, result) => {
       if (err) console.log(err);
       res.end();
+      pool.query(
+        "SELECT day_req from days_off where req_id=? ",
+        req.params.req_id,
+        (error, data) => {
+          if (error) console.log(error);
+          nexmo.message.sendSms(
+            "13024868348",
+            "14074939784",
+            "Your request was denied",
+            { type: "unicode" },
+            (errors, responseData) => {
+              if (errors) {
+                console.log(errors);
+              } else {
+                console.log("text sent");
+              }
+            }
+          );
+        }
+      );
     }
   );
 });

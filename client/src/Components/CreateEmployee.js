@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
@@ -7,8 +7,64 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import Adminside from "./smallerComponents/Adminside";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function CreateEmployee() {
+  const [lName, setLName] = useState("");
+  const [fName, setFName] = useState("");
+  const [emails, setEmail] = useState("");
+  const [pay, setPay] = useState("");
+  const [passwords, setPassword] = useState("");
+  const [phone, setPhone] = useState();
+  const [formData, setFormData] = useState([]);
+
+  const handleFName = first_name => {
+    setFormData({ ...formData, first_name });
+    setFName(first_name);
+    console.log(formData);
+  };
+  const handleLName = last_name => {
+    setFormData({ ...formData, last_name });
+    setLName(last_name);
+    console.log(formData);
+  };
+  const handleEmail = email => {
+    setFormData({ ...formData, email });
+    setEmail(email);
+    console.log(formData);
+  };
+  const handlePay = pay_rate => {
+    setFormData({ ...formData, pay_rate });
+    setPay(pay_rate);
+    console.log(formData);
+  };
+  const handlePassword = password => {
+    setFormData({ ...formData, password });
+    setPassword(password);
+    console.log(formData);
+  };
+  const handlePhone = phone_number => {
+    setFormData({ ...formData, phone_number: +phone_number });
+    setPhone(phone_number);
+    console.log(formData);
+  };
+  const handleAdmin = isAdmin => {
+    setFormData({ ...formData, isAdmin });
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
+    setPhone("");
+    setFName("");
+    setLName("");
+    setEmail("");
+    setPay("");
+    setPassword("");
+    axios.post("/api/admin/newEmp", formData).then(res => {
+      console.log(res);
+    });
+  };
+
   return (
     <div>
       <Adminside />
@@ -39,6 +95,8 @@ export default function CreateEmployee() {
                   label="First name"
                   fullWidth
                   autoComplete="fname"
+                  value={fName}
+                  onChange={e => handleFName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -48,6 +106,8 @@ export default function CreateEmployee() {
                   label="Last Name"
                   fullWidth
                   autoComplete="lname"
+                  value={lName}
+                  onChange={e => handleLName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -57,6 +117,8 @@ export default function CreateEmployee() {
                   label="Email"
                   fullWidth
                   autoComplete="@"
+                  value={emails}
+                  onChange={e => handleEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -66,6 +128,8 @@ export default function CreateEmployee() {
                   label="Pay Rate"
                   fullWidth
                   autoComplete="$"
+                  value={pay}
+                  onChange={e => handlePay(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -75,6 +139,8 @@ export default function CreateEmployee() {
                   label="Temporary Password"
                   fullWidth
                   autoComplete="12345"
+                  value={passwords}
+                  onChange={e => handlePassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -84,15 +150,18 @@ export default function CreateEmployee() {
                   label="Phone Number"
                   fullWidth
                   autoComplete="12345"
+                  value={phone}
+                  onChange={e => handlePhone(e.target.value)}
                 />
               </Grid>
 
               <Grid style={{ textAlign: "center" }} item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox color="secondary" name="Admin" value="yes" />
+                    <Checkbox color="secondary" name="Admin" value="true" />
                   }
                   label="Is this Employee an Administrator?"
+                  onChange={e => handleAdmin(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -102,8 +171,9 @@ export default function CreateEmployee() {
             variant="contained"
             color="primary"
             disableElevation
+            onClick={handleSubmit}
           >
-            Submit
+            Create Employee
           </Button>
         </div>
       </div>
