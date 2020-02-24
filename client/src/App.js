@@ -22,14 +22,14 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={SignInSide} />
-          <Route path="/dashboard" component={DashComponent} />
+          <Route path="/dashboard/:id" component={DashComponent} />
           <Route path="/schedule/:id" component={Schedule} />
           <Route path="/timeoff/:id" component={TimeOff} />
-          <Route path="/signin" component={SignInSide} />
-          <Route path="/documents" component={Documents} />
-          <Route path="/announcements" component={NewsAlerts} />
-          <Route path="/inbox" component={InboxComp} />
-          <Route path="/contact/:empID" component={UserProfile} />
+          <Route path="/signin/:id" component={SignInSide} />
+          <Route path="/documents/:id" component={Documents} />
+          <Route path="/announcements/:id" component={NewsAlerts} />
+          <Route path="/inbox/:id" component={InboxComp} />
+          <Route path="/contact/:id" component={UserProfile} />
           <Route exact path="/admin" component={AdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
           <Route path="/admin/annoucements" component={AdminDash} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -68,6 +68,12 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const [userID, setuserID] = useState("1");
+
+  const handleChange = id => {
+    setuserID(id);
+    console.log(userID);
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -92,6 +98,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={event => handleChange(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -111,7 +118,7 @@ export default function SignInSide() {
             <Button
               type="submit"
               component={Link}
-              to="/dashboard"
+              to={`/dashboard/${userID}`}
               fullWidth
               variant="contained"
               color="primary"
