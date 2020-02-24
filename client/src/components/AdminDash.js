@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Adminside from "./smallerComponents/Adminside";
 import "./styles.css";
 import AdminSched from "./smallerComponents/AdminSched";
-import RequestsSnap from "./smallerComponents/RequestsSnap";
 import Grid from "@material-ui/core/Grid";
 import DashNewsCard from "./smallerComponents/DashNewsCard";
 import AdminTodo from "./smallerComponents/AdminTodo";
@@ -31,6 +30,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//the admin dashboard
+
 export default function DashComponent(props) {
   const classes = useStyles();
 
@@ -38,32 +39,35 @@ export default function DashComponent(props) {
     <div>
       <Adminside id={props.match.params.id} />
 
-      <Grid container className={classes.container} spacing={10} direction="row">
-     
+      <Grid
+        container
+        className={classes.container}
+        spacing={10}
+        direction="row"
+      >
         <Grid item xs={8}>
           <AdminSched id={props.match.params.id} />
         </Grid>
-        {/* <Grid item md={6}>
-          <DashNewsCard />
-        </Grid> */}
+
+       
          <Grid item md={4}>
           <DashNewsCard/>
           
         </Grid>
         
-        {/* <Grid item md={12}>
-          <RequestsSnap id={props.match.params.id} />
-        </Grid> */}
+
       </Grid>
-      <Grid container style={{marginTop:"-10%"}} className={classes.container} spacing={10} direction="row">
-     
+      <Grid
+        container
+        style={{ marginTop: "-10%" }}
+        className={classes.container}
+        spacing={10}
+        direction="row"
+      >
         <Grid item xs={8}>
           <AdminTodo />
         </Grid>
-        
-        </Grid>
-
-     
+      </Grid>
     </div>
   );
 }

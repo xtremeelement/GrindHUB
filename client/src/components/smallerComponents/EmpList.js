@@ -17,6 +17,8 @@ export default function EmpList() {
     });
   }, []);
 
+  //this table shows a list of employees and their relevant information
+
   if (loading) {
     return (
       <TableBody>

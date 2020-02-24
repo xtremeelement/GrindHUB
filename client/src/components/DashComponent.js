@@ -10,6 +10,8 @@ import DashNewsCard from "./smallerComponents/DashNewsCard";
 import DashEmployeeotm from "./smallerComponents/DashEmployeeotm";
 import NewAdminDashTable from "./smallerComponents/NewAdminDashTable";
 
+//this is the main dashboard for employees
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -39,32 +41,35 @@ export default function DashComponent(props) {
     <div>
       <Sidebar id={props.match.params.id} />
 
-      <Grid container className={classes.container} spacing={10} direction="row">
-     
+      <Grid
+        container
+        className={classes.container}
+        spacing={10}
+        direction="row"
+      >
         <Grid item xs={8}>
           <SchedSnap id={props.match.params.id} />
         </Grid>
-       
-         <Grid item md={4}>
-          <DashEmployeeotm/>
-          
+
+        <Grid item md={4}>
+          <DashEmployeeotm />
         </Grid>
-        
-  
       </Grid>
-      <Grid container style={{marginTop:"-10%"}} className={classes.container} spacing={10} direction="row">
-     
+      <Grid
+        container
+        style={{ marginTop: "-8%" }}
+        className={classes.container}
+        spacing={10}
+        direction="row"
+      >
         <Grid item xs={8}>
           <RequestsSnap id={props.match.params.id} />
         </Grid>
-        
-        </Grid>
-  
-     
-    
-         <Grid container className={classes.container} spacing={2} direction="row">
-         <Grid item md={12}>
-          <NewAdminDashTable/>
+      </Grid>
+
+      <Grid container className={classes.container} spacing={2} direction="row">
+        <Grid item md={12}>
+          <NewAdminDashTable />
         </Grid>
       </Grid>
     </div>

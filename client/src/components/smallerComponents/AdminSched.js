@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%"
   }
 }));
+//exporting the component where admins can view shifts of the day
 
 export default function AdminSched({ id }) {
   const classes = useStyles();
@@ -57,8 +58,9 @@ export default function AdminSched({ id }) {
   };
 
   useEffect(() => {
-    axios.get(`/api/schedsnap/${id}`).then(res => {
+    axios.get(`/api/admin/emptoday`).then(res => {
       setSchedData(res.data);
+      console.log(res.data);
     });
   }, []);
 
@@ -83,15 +85,18 @@ export default function AdminSched({ id }) {
               </TableRow>
             </TableHead>
             <TableBody>
+       
+        {/* mapping out the info for the table using entries from the database */}
               {schedData.map(schedule => {
+                let name = schedule.first_name + " " + schedule.last_name;
                 let date = new Date(schedule.day_work).toDateString();
                 let start = convertTime(schedule.start);
                 let end = convertTime(schedule.end);
                 return (
                   <TableRow>
-                    <TableCell>{date}</TableCell>
+                    <TableCell>{name}</TableCell>
                     <TableCell align="right">{start}</TableCell>
-                    <TableCell align="right">{start}</TableCell>
+                    <TableCell align="right">{end}</TableCell>
                   </TableRow>
                 );
               })}
@@ -99,7 +104,6 @@ export default function AdminSched({ id }) {
           </Table>
         </TableContainer>
         <br />
-       
       </CardContent>
     </Card>
   );

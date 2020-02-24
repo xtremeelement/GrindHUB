@@ -67,6 +67,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//creating the admin dash sidebar component
 export default function Adminside() {
   const classes = useStyles();
 

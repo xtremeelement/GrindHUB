@@ -37,7 +37,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+//this is the announcement card for the admin dashboard
+
+export default function DashNewsCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

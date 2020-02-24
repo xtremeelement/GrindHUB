@@ -6,6 +6,7 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
+//the same function that creates an admin schedule, but instead for employees
 export default function EmpList({ id }) {
   let [schedule, setSchedule] = useState([]);
   let [loading, setLoading] = useState(true);
