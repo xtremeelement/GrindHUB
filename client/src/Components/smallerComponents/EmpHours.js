@@ -21,6 +21,8 @@ export default function EmpHours({ userid }) {
     var ampm = H < 12 || H === 24 ? "AM" : "PM";
     timeString = h + timeString.substr(2, 3) + ampm;
 
+    //this function generates a table that populates with the employee's shifts
+
     return timeString;
   };
 

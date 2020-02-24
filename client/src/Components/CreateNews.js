@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-
+//create a new announcement
 
 export default function CreateNews() {
 

@@ -6,6 +6,8 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 
+//this loads the rows into the time-off requests table
+
 export default function TimeOffReq() {
   let [AllReqs, setAllReqs] = useState([]);
   let [loading, setLoading] = useState(true);

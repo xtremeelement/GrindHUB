@@ -17,6 +17,8 @@ const useStyles = makeStyles({
   }
 });
 
+//ability to track general employee info
+
 export default function DenseTable() {
   const classes = useStyles();
 

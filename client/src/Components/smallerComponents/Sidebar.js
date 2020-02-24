@@ -25,7 +25,6 @@ import {
   Settings
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-// import { IconButton } from "material-ui";
 
 // bg color #182231  side color #3F51B5
 
@@ -70,6 +69,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: "40px"
   }
 }));
+
+//this is the sidebar component for the employee view
 
 export default function Sidebar({ id }) {
   const classes = useStyles();

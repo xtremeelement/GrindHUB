@@ -2,7 +2,7 @@ drop database if exists GrindhubDB;
 
 create database GrindhubDB;
 
-use database GrindhubDB;
+use GrindhubDB;
 
 create table Employee(
 userID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,

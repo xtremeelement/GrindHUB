@@ -4,6 +4,8 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
 
+//requests for days off and the ability to approve or deny those requests
+
 export default function PrevRequests({ requests }) {
   function handleStatus(status) {
     if (status == true) {

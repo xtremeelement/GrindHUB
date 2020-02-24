@@ -1,4 +1,4 @@
-use database GrindhubDB;
+use GrindhubDB;
 
 
 INSERT INTO Schedule (CustomerName, ContactName, Address, City, PostalCode, Country)

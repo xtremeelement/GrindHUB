@@ -43,6 +43,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+//employees can see their posted schedules
+
 export default function SchedSnap({ id }) {
   const classes = useStyles();
   const [schedData, setSchedData] = useState([]);
