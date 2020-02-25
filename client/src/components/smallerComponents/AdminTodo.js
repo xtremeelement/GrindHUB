@@ -55,7 +55,7 @@ export default function AdminTodo() {
             <CheckCircle />
           </Avatar>
         }
-        title="To-Do List"
+        title="Todays Tasks"
       />
       <CardContent>
         <Table className={classes.table} aria-label="simple table">
@@ -74,6 +74,46 @@ export default function AdminTodo() {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText primary="Approve Time Off" />
+              <ListItemSecondaryAction>
+                <IconButton edge="end" aria-label="delete">
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    color: "black",
+                    backgroundColor: "white"
+                  }}
+                >
+                  <Done />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Issue PTFs" />
+              <ListItemSecondaryAction>
+                <IconButton edge="end" aria-label="delete">
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    color: "black",
+                    backgroundColor: "white"
+                  }}
+                >
+                  <Done />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="90 Day Checkup with Jacob" />
               <ListItemSecondaryAction>
                 <IconButton edge="end" aria-label="delete">
                   <DeleteIcon />

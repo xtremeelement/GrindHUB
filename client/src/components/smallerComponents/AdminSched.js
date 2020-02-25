@@ -71,7 +71,7 @@ export default function AdminSched({ id }) {
             <Schedule />
           </Avatar>
         }
-        title="Upcoming Shifts"
+        title="Employees Working Today"
       />
       <CardContent>
         <TableContainer component={Paper}>
