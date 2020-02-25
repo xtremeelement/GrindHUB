@@ -15,6 +15,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import { Schedule } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
 //test comment
 const useStyles = makeStyles({
   root: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ScheduleComp(props) {
+function ScheduleComponent(props) {
   const classes = useStyles();
 
   return (
@@ -73,6 +74,10 @@ export default function ScheduleComp(props) {
                 </TableHead>
                 <EmpSchedule id={props.match.params.id} />
               </Table>
+              <Typography variant="body2" color="textSecondary" component="p">
+                If there is a discrepancy with your schedule, please speak with
+                your leadership team.
+              </Typography>
             </TableContainer>
           </CardContent>
         </Card>
@@ -80,3 +85,4 @@ export default function ScheduleComp(props) {
     </div>
   );
 }
+export default ScheduleComponent;
