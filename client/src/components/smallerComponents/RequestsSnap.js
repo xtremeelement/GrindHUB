@@ -56,6 +56,16 @@ export default function SchedSnap({ id }) {
     });
   }, []);
 
+  const setReason = reason => {
+    if (reason === 1) {
+      return "Approved";
+    } else if (reason === 0) {
+      return "Denied";
+    } else {
+      return "Pending Review";
+    }
+  };
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -79,13 +89,13 @@ export default function SchedSnap({ id }) {
             <TableBody>
               {schedData.map(schedule => {
                 let date = new Date(schedule.day_req).toDateString();
-                let start = schedule.emp_reason;
-                let end = schedule.approved;
+                let reason = schedule.emp_reason;
+                let status = setReason(schedule.approved);
                 return (
                   <TableRow>
                     <TableCell>{date}</TableCell>
-                    <TableCell>{start}</TableCell>
-                    <TableCell align="right">{end}</TableCell>
+                    <TableCell>{reason}</TableCell>
+                    <TableCell align="right">{status}</TableCell>
                   </TableRow>
                 );
               })}
