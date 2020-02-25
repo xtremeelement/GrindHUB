@@ -9,6 +9,8 @@ import WorkIcon from "@material-ui/icons/Work";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Sidebar from "./smallerComponents/Sidebar";
+import CardHeader from '@material-ui/core/CardHeader';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,12 +20,16 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     marginTop: 100,
     borderRadius: "25px"
+  
   },
   header: {
     fontSize: "50px",
     color: "#FFFFFF",
     textAlign: "center",
     fontFamily: "Roboto"
+  },
+  avatar: {
+    backgroundColor: "#182231",
   }
 }));
 
@@ -35,16 +41,25 @@ export default function Documents() {
   return (
     <div>
       <Sidebar />
-      <div style={{ width: "60%", margin: "0 auto" }}>
-        <h1 className={classes.header}>User Documents and Forms</h1>
+      <div style={{ width: "60%", margin: "0 auto"}}>
         <Button component={Link} to="/dashboard" style={{ color: "white" }}>
           -Back
         </Button>
         <List className={classes.root}>
+        <CardHeader style={{marginBottom: "3%", textAlign: "center"}}
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+          <WorkIcon/>
+          </Avatar>
+        }
+
+        title="Forms And Documents"
+        
+      />
           <ListItem>
             <ListItemAvatar>
               <Avatar>
-                <WorkIcon />
+                < AttachFileIcon />
               </Avatar>
             </ListItemAvatar>
             <a
@@ -62,7 +77,7 @@ export default function Documents() {
           <ListItem>
             <ListItemAvatar>
               <Avatar>
-                <WorkIcon />
+                < AttachFileIcon />
               </Avatar>
             </ListItemAvatar>
             <a
@@ -79,7 +94,7 @@ export default function Documents() {
           <ListItem>
             <ListItemAvatar>
               <Avatar>
-                <WorkIcon />
+                < AttachFileIcon />
               </Avatar>
             </ListItemAvatar>
             <a
@@ -97,7 +112,7 @@ export default function Documents() {
           <ListItem>
             <ListItemAvatar>
               <Avatar>
-                <WorkIcon />
+                < AttachFileIcon/>
               </Avatar>
             </ListItemAvatar>
             <a
