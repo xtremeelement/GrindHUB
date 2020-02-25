@@ -47,18 +47,13 @@ export default function DashComponent(props) {
         <Grid item xs={8}>
           <AdminSched id={props.match.params.id} />
         </Grid>
-
-       
-         <Grid item md={4}>
-          <DashNewsCard/>
-          
+        <Grid item md={4}>
+          <DashNewsCard />
         </Grid>
-        
-
       </Grid>
       <Grid
         container
-        style={{ marginTop: "-10%" }}
+        style={{ marginTop: "-5%" }}
         className={classes.container}
         spacing={10}
         direction="row"
