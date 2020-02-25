@@ -13,6 +13,7 @@ import SignInSide from "./components/SignIn";
 import adminSchedule from "./components/adminSchedule";
 import AdminTimeOff from "./components/ApproveTimeOff";
 import CreateEmployee from "./components/CreateEmployee";
+import CreateNews from "./components/CreateNews";
 
 //routes and rendering of all major pages
 function App() {
@@ -31,7 +32,7 @@ function App() {
           <Route path="/contact/:id" component={UserProfile} />
           <Route exact path="/admin" component={AdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
-          <Route path="/admin/annoucements" component={AdminDash} />
+          <Route path="/admin/announcements" component={AdminDash} />
           <Route path="/admin/newemployee" component={CreateEmployee} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
           <Route path="/admin/createSchedule/:id" component={adminSchedule} />
