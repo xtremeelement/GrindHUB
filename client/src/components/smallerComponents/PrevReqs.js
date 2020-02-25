@@ -3,21 +3,19 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
 
 //this shows previously requested days off
 
 export default function TimeOffReq() {
   let [AllReqs, setAllReqs] = useState([]);
   let [loading, setLoading] = useState(true);
-  let [requestChanged, setRequestChanged] = useState(0);
 
   useEffect(() => {
     axios.get("/api/admin/daysOff").then(res => {
       setAllReqs(res.data);
       setLoading(false);
     });
-  }, [requestChanged]);
+  }, []);
 
   if (loading) {
     return (
@@ -34,7 +32,7 @@ export default function TimeOffReq() {
           let name = request.first_name + " " + request.last_name;
           let date = new Date(request.day_req);
           date = date.toDateString();
-          if (request.approved == 1) {
+          if (request.approved === 1) {
             return (
               <TableRow key={request.user_id}>
                 <TableCell align="left">{name}</TableCell>
@@ -44,7 +42,7 @@ export default function TimeOffReq() {
                 <TableCell align="right"></TableCell>
               </TableRow>
             );
-          } else if (request.approved == 0) {
+          } else if (request.approved === 0) {
             return (
               <TableRow key={request.user_id}>
                 <TableCell align="left">{name}</TableCell>
@@ -52,6 +50,16 @@ export default function TimeOffReq() {
                 <TableCell align="right">{request.emp_reason}</TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right">Denied</TableCell>
+              </TableRow>
+            );
+          } else {
+            return (
+              <TableRow key={request.user_id}>
+                <TableCell align="left">{name}</TableCell>
+                <TableCell align="right">{date}</TableCell>
+                <TableCell align="right">{request.emp_reason}</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right">Pending Review</TableCell>
               </TableRow>
             );
           }

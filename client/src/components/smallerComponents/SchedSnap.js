@@ -93,7 +93,7 @@ export default function SchedSnap({ id }) {
                   <TableRow>
                     <TableCell>{date}</TableCell>
                     <TableCell align="right">{start}</TableCell>
-                    <TableCell align="right">{start}</TableCell>
+                    <TableCell align="right">{end}</TableCell>
                   </TableRow>
                 );
               })}

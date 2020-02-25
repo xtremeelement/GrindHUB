@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -19,7 +19,6 @@ import {
   Email,
   FolderShared,
   ContactPhone,
-  LocalAtm,
   Star,
   Home,
   Settings
@@ -80,15 +79,15 @@ export default function Sidebar({ id }) {
       return `/dashboard/${id}`;
     } else if (text === "My Schedule") {
       return `/schedule/${id}`;
-    } else if (text == "My Documents") {
+    } else if (text === "My Documents") {
       return `/documents/${id}`;
-    } else if (text == "My Info") {
+    } else if (text === "My Info") {
       return `/contact/${id}`;
-    } else if (text == "Benefits") {
+    } else if (text === "Benefits") {
       return `/documents/${id}`;
-    } else if (text == "Request Time") {
+    } else if (text === "Request Time") {
       return `/timeoff/${id}`;
-    } else if (text == "Announcements") {
+    } else if (text === "Announcements") {
       return `/annoucements/${id}`;
     } else {
       return `/inbox/${id}`;
@@ -107,31 +106,31 @@ export default function Sidebar({ id }) {
           <AccessTime className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "My Documents") {
+    } else if (text === "My Documents") {
       return (
         <IconButton component={Link} to={`/documents/${id}`}>
           <FolderShared className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "My Info") {
+    } else if (text === "My Info") {
       return (
         <IconButton component={Link} to={`/contact/${id}`}>
           <ContactPhone className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "Benefits") {
+    } else if (text === "Benefits") {
       return (
         <IconButton component={Link} to={`/documents/${id}`}>
           <Star className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "Request Time") {
+    } else if (text === "Request Time") {
       return (
         <IconButton component={Link} to={`/timeoff/${id}`}>
           <Event className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "Announcements") {
+    } else if (text === "Announcements") {
       return (
         <IconButton component={Link} to={`/annoucements/${id}`}>
           <Announcement className={classes.iconColor} />

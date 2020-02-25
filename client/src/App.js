@@ -1,6 +1,5 @@
 import React from "react";
 import Schedule from "./components/ScheduleComponent";
-import AppHeader from "./components/smallerComponents/AppHeader";
 import TimeOff from "./components/TimeOffComponent";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfileComponent";

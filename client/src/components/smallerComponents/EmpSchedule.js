@@ -3,29 +3,11 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 
 //the same function that creates an admin schedule, but instead for employees
 export default function EmpList({ id }) {
   let [schedule, setSchedule] = useState([]);
   let [loading, setLoading] = useState(true);
-
-  const convertTime12to24 = time12h => {
-    const [time, modifier] = time12h.split(" ");
-
-    let [hours, minutes, seconds] = time.split(":");
-
-    if (hours === "12") {
-      hours = "00";
-    }
-
-    if (modifier === "PM") {
-      hours = parseInt(hours, 10) + 12;
-    }
-
-    return `${hours}:${minutes}:${seconds}`;
-  };
 
   const convertTime = timeString => {
     var H = +timeString.substr(0, 2);

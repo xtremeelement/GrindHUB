@@ -13,7 +13,6 @@ import {
 import Sidebar from "./smallerComponents/Sidebar";
 import axios from "axios";
 import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
@@ -43,7 +42,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function TimeOff(props) {
   const classes = useStyles();
-  let requests = [];
   const [formData, setFormData] = useState([]);
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2020-02-20T08:00:00")
@@ -123,8 +121,7 @@ export default function TimeOff(props) {
           <Button
             variant="contained"
             style={{
-              margin: "0 auto",
-              margin: "3%",
+              margin: "3% auto",
               display: "block",
               marginTop: "10%"
             }}

@@ -33,17 +33,6 @@ export default function UserProfile(props) {
           -Back
         </Button>
         <Grid container spacing={3}>
-          <Grid item xs>
-            <h1
-              style={{
-                textAlign: "center",
-                fontFamily: "Roboto",
-                color: "white"
-              }}
-            >
-              Your Profile
-            </h1>
-          </Grid>
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs>

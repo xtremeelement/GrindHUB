@@ -12,10 +12,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import {
-  AccessTime,
   Event,
   Announcement,
-  ContactPhone,
   Group,
   GroupAdd,
   Home,
@@ -76,9 +74,9 @@ export default function Adminside() {
       return "/admin";
     } else if (text === "Schedule Employees") {
       return "/admin/schedule";
-    } else if (text == "Time Off Requests") {
+    } else if (text === "Time Off Requests") {
       return "/admin/timeoff";
-    } else if (text == "Create Announcements") {
+    } else if (text === "Create Announcements") {
       return "/admin/announcements";
     } else {
       return "/admin/newemployee";
@@ -97,13 +95,13 @@ export default function Adminside() {
           <Group className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "Time Off Requests") {
+    } else if (text === "Time Off Requests") {
       return (
         <IconButton component={Link} to="/admin/timeoff">
           <Event className={classes.iconColor} />
         </IconButton>
       );
-    } else if (text == "Create Announcements") {
+    } else if (text === "Create Announcements") {
       return (
         <IconButton component={Link} to="/admin/announcements">
           <Announcement className={classes.iconColor} />

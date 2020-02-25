@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import axios from "axios";
 
-export default function EmpHours({ userid }) {
-  let [AllHours, setAllHours] = useState([]);
-  let [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get(`/api/admin/emphours/${userid}`).then(res => {
-      setAllHours(res.data);
-      setLoading(false);
-    });
-  }, []);
-
+export default function EmpHours({ AllHours, loading }) {
   const convertTime = timeString => {
     var H = +timeString.substr(0, 2);
     var h = H % 12 || 12;
@@ -34,7 +23,7 @@ export default function EmpHours({ userid }) {
         </TableRow>
       </TableBody>
     );
-  } else if (AllHours.length < 1) {
+  } else if (!AllHours) {
     return (
       <TableBody>
         <TableRow>
