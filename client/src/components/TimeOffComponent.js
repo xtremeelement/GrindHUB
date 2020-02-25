@@ -19,13 +19,16 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PrevRequests from "./smallerComponents/PrevRequests";
+import Avatar from '@material-ui/core/Avatar';
+import CardHeader from '@material-ui/core/CardHeader';
+import EventIcon from '@material-ui/icons/Event';
 
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
     backgroundColor: "white",
-    padding: "10%",
+    padding: "5%",
     justifyContent: "center",
     borderRadius: "5px"
     
@@ -39,6 +42,9 @@ const useStyles = makeStyles(theme => ({
     display: "block",
     width: "50%",
     margin: "25px auto"
+  },
+  avatar: {
+    backgroundColor: "#182231",
   }
 }));
 
@@ -95,6 +101,16 @@ export default function TimeOff(props) {
           -Back
         </Button>
         <form className={classes.container} noValidate>
+        <CardHeader style={{marginBottom: "8%"}}
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+          <EventIcon/>
+          </Avatar>
+        }
+
+        title="Request Time Off"
+        
+      />
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Grid container justify="space-around">
               <KeyboardDatePicker
