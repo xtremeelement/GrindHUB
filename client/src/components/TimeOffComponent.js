@@ -26,7 +26,9 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     backgroundColor: "white",
     padding: "10%",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderRadius: "5px"
+    
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -123,7 +125,9 @@ export default function TimeOff(props) {
             style={{
               margin: "3% auto",
               display: "block",
-              marginTop: "10%"
+              marginTop: "10%",
+              color: "white",
+              backgroundColor: "#182231"
             }}
             onClick={submitRequest}
           >
