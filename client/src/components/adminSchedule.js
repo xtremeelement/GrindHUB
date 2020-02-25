@@ -1,5 +1,5 @@
 import "date-fns";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -35,6 +35,9 @@ export default function CreateSchedule(props) {
   );
   const [startTime, setStartTime] = useState(new Date("2020-02-20T11:00:00"));
   const [endTime, setEndTime] = useState(new Date("2020-02-20T14:00:00"));
+  const [data, setData] = useState([]);
+  let [loading, setLoading] = useState(true);
+  let userid = props.match.params.id;
 
   const handleDateChange = date => {
     setSelectedDate(date);
@@ -67,6 +70,13 @@ export default function CreateSchedule(props) {
     return `${hours}:${minutes}:${seconds}`;
   };
 
+  useEffect(() => {
+    axios.get(`/api/admin/emphours/${userid}`).then(res => {
+      setData(res.data);
+      setLoading(false);
+    });
+  }, []);
+
   function submitSchedule() {
     let data = [];
     let starttime = new Date(formData.start).toLocaleTimeString();
@@ -86,7 +96,10 @@ export default function CreateSchedule(props) {
       .post(`/api/admin/submitSchedule/${props.match.params.id}`, data)
       .then(res => {
         console.log(res);
-        window.location.reload();
+        axios.get(`/api/admin/emphours/${userid}`).then(res => {
+          setData(res.data);
+          setLoading(false);
+        });
       });
     setFormData([]);
   }
@@ -165,7 +178,11 @@ export default function CreateSchedule(props) {
                 <TableCell align="right">Absent?</TableCell>
               </TableRow>
             </TableHead>
-            <EmpHours userid={props.match.params.id} />
+            <EmpHours
+              userid={props.match.params.id}
+              AllHours={data}
+              loading={loading}
+            />
           </Table>
         </TableContainer>
       </div>

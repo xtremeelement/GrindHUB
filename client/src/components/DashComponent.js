@@ -6,7 +6,6 @@ import "./styles.css";
 import SchedSnap from "./smallerComponents/SchedSnap";
 import RequestsSnap from "./smallerComponents/RequestsSnap";
 import Grid from "@material-ui/core/Grid";
-import DashNewsCard from "./smallerComponents/DashNewsCard";
 import DashEmployeeotm from "./smallerComponents/DashEmployeeotm";
 import NewAdminDashTable from "./smallerComponents/NewAdminDashTable";
 

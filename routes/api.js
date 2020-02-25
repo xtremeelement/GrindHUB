@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const router = express.Router();
 const Nexmo = require("nexmo");
 
-//all of the MySQL CRUD 
+//all of the MySQL CRUD
 
 let pool;
 
