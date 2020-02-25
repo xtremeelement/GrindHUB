@@ -3,6 +3,18 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+import { Schedule } from "@material-ui/icons";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,14 +35,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function EmpInfo({empID}) {
     const classes = useStyles();
-    let [AllInfo, setAllInfo] = useState([]);
+    const [AllInfo, setAllInfo] = useState([]);
     let [loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios.get(`/api/employeeInfo/${empID}`).then(res => {
-            console.log(res.data[0])
-            setAllInfo(res.data[0]);
-            console.log(AllInfo)
+           setAllInfo(res.data[0]);
+            
             setLoading(false);
         });
     }, []);
@@ -43,13 +54,43 @@ export default function EmpInfo({empID}) {
         )
     }else{
         return (
-            <Paper className={classes.paper}>
-                <h1>First Name: {AllInfo.first_name}</h1>
-                <h1>Last Name: {AllInfo.last_name}</h1>
-                <h1>Pay: {AllInfo.pay_rate}</h1>
-                <h1>Phone: {AllInfo.phone_number} </h1>
-                <h1>Email: {AllInfo.email} </h1>
-            </Paper>
+            <Card className={classes.root}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  <Schedule />
+                </Avatar>
+              }
+              title="Your Profile"
+            />
+            <CardContent>
+              <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="simple table">
+                  <TableHead>
+                  </TableHead>
+                  <TableBody>
+                    {AllInfo.map(data => {
+                      return (
+                          <div>
+                        <TableRow align="right">Name: {data.first_name}</TableRow>
+                        <TableRow align="right">Last Name: {data.last_name} </TableRow>
+                        <TableRow align="right">Pay: {data.pay_rate} </TableRow>
+                        <TableRow align="right">Phone: {data.phone_number} </TableRow>
+                        <TableRow align="right">Email: {data.email} </TableRow>
+                        </div>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <br />
+              <Typography variant="body2" color="textSecondary" component="p">
+               To update any information, please contact your leadship team.
+              </Typography>
+            </CardContent>
+          </Card> 
+            
+    
         );
     }
     
