@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -7,30 +7,17 @@ import Button from "@material-ui/core/Button";
 
 //this loads the rows into the time-off requests table
 
-export default function TimeOffReq() {
-  let [AllReqs, setAllReqs] = useState([]);
-  let [loading, setLoading] = useState(true);
-  let [requestChanged, setRequestChanged] = useState(0);
-
-  useEffect(() => {
-    axios.get("/api/admin/daysOff").then(res => {
-      setAllReqs(res.data);
-      setLoading(false);
-    });
-  }, [requestChanged]);
-
+export default function TimeOffReq({ rerender, AllReqs, loading }) {
   function ApproveTime(req_id) {
     console.log(req_id);
     axios.put(`/api/admin/approve/${req_id}`).then(res => {
-      setRequestChanged(requestChanged + 1);
-      window.location.reload();
+      rerender();
     });
   }
 
   function DenyTime(req_id) {
     axios.put(`/api/admin/deny/${req_id}`).then(res => {
-      setRequestChanged(requestChanged + 1);
-      window.location.reload();
+      rerender();
     });
   }
 
@@ -83,8 +70,6 @@ export default function TimeOffReq() {
                 </TableCell>
               </TableRow>
             );
-          } else {
-            return <TableRow>Null</TableRow>;
           }
         })}
       </TableBody>
