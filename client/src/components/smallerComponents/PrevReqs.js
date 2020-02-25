@@ -42,16 +42,6 @@ export default function TimeOffReq({ AllReqs, loading }) {
                 <TableCell align="right">Denied</TableCell>
               </TableRow>
             );
-          } else {
-            return (
-              <TableRow key={request.user_id}>
-                <TableCell align="left">{name}</TableCell>
-                <TableCell align="right">{date}</TableCell>
-                <TableCell align="right">{request.emp_reason}</TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right">Pending Review</TableCell>
-              </TableRow>
-            );
           }
         })}
       </TableBody>
