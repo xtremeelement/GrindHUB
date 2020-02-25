@@ -8,7 +8,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-import { Schedule } from "@material-ui/icons";
+import PersonIcon from '@material-ui/icons/Person';
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
@@ -57,8 +57,8 @@ export default function EmpInfo({empID}) {
             <Card className={classes.root}>
             <CardHeader
               avatar={
-                <Avatar aria-label="recipe" className={classes.avatar}>
-                  <Schedule />
+                <Avatar style={{backgroundColor: "#182231"}} aria-label="recipe" className={classes.avatar}>
+                  <PersonIcon />
                 </Avatar>
               }
               title="Your Profile"
@@ -69,17 +69,17 @@ export default function EmpInfo({empID}) {
                   <TableHead>
                   </TableHead>
                   <TableBody>
-                    {AllInfo.map(data => {
+                    {/* {AllInfo.map(data => {
                       return (
                           <div>
-                        <TableRow align="right">Name: {data.first_name}</TableRow>
-                        <TableRow align="right">Last Name: {data.last_name} </TableRow>
-                        <TableRow align="right">Pay: {data.pay_rate} </TableRow>
-                        <TableRow align="right">Phone: {data.phone_number} </TableRow>
-                        <TableRow align="right">Email: {data.email} </TableRow>
+                        <TableRow align="center">Name: {data.first_name}</TableRow>
+                        <TableRow align="center">Last Name: {data.last_name} </TableRow>
+                        <TableRow align="center">Pay: {data.pay_rate} </TableRow>
+                        <TableRow align="center">Phone: {data.phone_number} </TableRow>
+                        <TableRow align="center">Email: {data.email} </TableRow>
                         </div>
                       );
-                    })}
+                    })} */}
                   </TableBody>
                 </Table>
               </TableContainer>
