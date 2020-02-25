@@ -88,7 +88,7 @@ export default function Sidebar({ id }) {
     } else if (text === "Request Time") {
       return `/timeoff/${id}`;
     } else if (text === "Announcements") {
-      return `/annoucements/${id}`;
+      return `/announcements/${id}`;
     } else {
       return `/inbox/${id}`;
     }
@@ -132,7 +132,7 @@ export default function Sidebar({ id }) {
       );
     } else if (text === "Announcements") {
       return (
-        <IconButton component={Link} to={`/annoucements/${id}`}>
+        <IconButton component={Link} to={`/announcements/${id}`}>
           <Announcement className={classes.iconColor} />
         </IconButton>
       );
