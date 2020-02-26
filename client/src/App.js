@@ -38,6 +38,7 @@ function App() {
           <Route path="/admin/newemployee" component={CreateEmployee} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
           <Route path="/admin/createSchedule/:id" component={adminSchedule} />
+          <Route path="/admin/inbox/:id" component={InboxComp} />
         </Switch>
       </Router>
     </div>
