@@ -71,8 +71,13 @@ const useStyles = makeStyles(theme => ({
 
 //this is the sidebar component for the employee view
 
-export default function Sidebar({ id }) {
+export default function Sidebar(props) {
   const classes = useStyles();
+  let id = props.id;
+
+  const handleLogout = () => {
+    localStorage.clear();
+  };
 
   const linkHandler = text => {
     if (text === "Home") {
@@ -167,6 +172,7 @@ export default function Sidebar({ id }) {
             component={Link}
             to="/"
             className={classes.buttonColor}
+            onClick={handleLogout}
           >
             Logout
           </Button>

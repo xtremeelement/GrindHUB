@@ -1,5 +1,5 @@
 //importing all of the necessary elements from the material UI package
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Sidebar from "./smallerComponents/Sidebar";
 import "./styles.css";
@@ -35,7 +35,12 @@ const useStyles = makeStyles(theme => ({
 
 export default function DashComponent(props) {
   const classes = useStyles();
-
+  useEffect(() => {
+    if (!localStorage.getItem("userAuth")) {
+      localStorage.clear();
+      props.history.push("/");
+    }
+  }, []);
   return (
     <div>
       <Sidebar id={props.match.params.id} />

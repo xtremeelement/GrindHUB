@@ -34,6 +34,53 @@ router.get("/findAllEmps", (req, res) => {
   });
 });
 
+router.post("/userauth", (req, res) => {
+  console.log(req.body);
+
+  pool.query(
+    "SELECT * FROM Employee where userID=?",
+    req.body.id,
+    (err, result) => {
+      if (err) throw err;
+      let data = JSON.parse(JSON.stringify(result));
+      console.log(data[0].userID);
+      if (data[0].userID == req.body.id && data[0].password == req.body.pass) {
+        res.status(200).send({ message: "success" });
+      } else {
+        res.status(200).send({ error: "invalid" });
+      }
+    }
+  );
+});
+router.post("/adminauth", (req, res) => {
+  console.log(req.body);
+
+  pool.query(
+    "SELECT * FROM Employee where userID=?",
+    req.body.id,
+    (err, result) => {
+      if (err) throw err;
+      let data = JSON.parse(JSON.stringify(result));
+      console.log(data[0].userID);
+      if (
+        data[0].userID == req.body.id &&
+        data[0].password == req.body.pass &&
+        data[0].isAdmin === 1
+      ) {
+        res.status(200).send({ message: "success" });
+      } else if (
+        data[0].userID == req.body.id &&
+        data[0].password == req.body.pass &&
+        data[0].isAdmin !== 1
+      ) {
+        res.status(200).send({ invalid: "not an admin" });
+      } else {
+        res.status(200).send({ error: "invalid credentials" });
+      }
+    }
+  );
+});
+
 router.get("/employeeSchedule/:id", (req, res) => {
   const user = req.params.id;
   pool.query(

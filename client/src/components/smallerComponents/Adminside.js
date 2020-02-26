@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -69,6 +69,10 @@ const useStyles = makeStyles(theme => ({
 export default function Adminside() {
   const classes = useStyles();
 
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
   const linkHandler = text => {
     if (text === "Home") {
       return "/admin";
@@ -138,6 +142,7 @@ export default function Adminside() {
             component={Link}
             to="/"
             className={classes.buttonColor}
+            onClick={handleLogout}
           >
             Logout
           </Button>
