@@ -40,7 +40,7 @@ export default function EmpInfo({empID}) {
 
     useEffect(() => {
         axios.get(`/api/employeeInfo/${empID}`).then(res => {
-           setAllInfo(res.data[0]);
+           setAllInfo(res.data);
             
             setLoading(false);
         });
@@ -69,7 +69,7 @@ export default function EmpInfo({empID}) {
                   <TableHead>
                   </TableHead>
                   <TableBody>
-                    {/* {AllInfo.map(data => {
+                    {AllInfo.map(data => {
                       return (
                           <div>
                         <TableRow align="center">Name: {data.first_name}</TableRow>
@@ -79,7 +79,7 @@ export default function EmpInfo({empID}) {
                         <TableRow align="center">Email: {data.email} </TableRow>
                         </div>
                       );
-                    })} */}
+                    })}
                   </TableBody>
                 </Table>
               </TableContainer>
