@@ -1,77 +1,187 @@
-// import React from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-// import Drawer from "@material-ui/core/Drawer";
-// import CssBaseline from "@material-ui/core/CssBaseline";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import List from "@material-ui/core/List";
-// import Typography from "@material-ui/core/Typography";
-// import Divider from "@material-ui/core/Divider";
-// import ListItem from "@material-ui/core/ListItem";
-// import ListItemIcon from "@material-ui/core/ListItemIcon";
-// import ListItemText from "@material-ui/core/ListItemText";
-// import InboxIcon from "@material-ui/icons/MoveToInbox";
-// import MailIcon from "@material-ui/icons/Mail";
-// import Sidebar from "./smallerComponents/Sidebar";
+import React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import MailIcon from '@material-ui/icons/Mail';
+import MenuIcon from '@material-ui/icons/Menu';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
-// const drawerWidth = 240;
+const drawerWidth = 240;
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     display: "flex"
-//   },
-//   appBar: {
-//     width: `calc(100% - ${drawerWidth}px)`,
-//     marginLeft: drawerWidth
-//   },
-//   drawer: {
-//     width: drawerWidth,
-//     flexShrink: 0
-//   },
-//   drawerPaper: {
-//     width: drawerWidth
-//   },
-//   toolbar: theme.mixins.toolbar,
-//   content: {
-//     flexGrow: 1,
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+    backgroundColor:"#182231", 
+    color: "white"
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
 
-//     backgroundColor: "#24344D",
-//     padding: theme.spacing(3)
-//   },
-//   typography: {
-//     color: "#CFD9E5"
-//   }
-// }));
+export default function InboxComp(props) {
+  const { container } = props;
+  const classes = useStyles();
+  const theme = useTheme();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-// //a built-in mailer tool for admin/employee communication and memos
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
-// export default function InboxComponent() {
-//   const classes = useStyles();
+  const drawer = (
+    <div>
+      <div className={classes.toolbar} />
+      <Divider />
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon style={{color: "white"}}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon style={{color: "white"}}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
-//   return (
-//     <div className={classes.root}>
-//       <Sidebar />
-//       <main className={classes.content}>
-//         <div className={classes.toolbar} />
-//         <Typography className={classes.typography} paragraph>
-//           Esteemed Employeee,
-//           <br></br>
-//           Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-//           labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent
-//           elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet.
-//           Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis
-//           convallis tellus id interdum velit laoreet id donec ultrices. Odio
-//           morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-//           adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-//           viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
-//           proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt.
-//           Cras tincidunt lobortis feugiat vivamus at augue. At augue eget arcu
-//           dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi
-//           tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-//           <br></br>
-//           -Boss
-//         </Typography>
-//       </main>
-//     </div>
-//   );
-// }
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar style={{backgroundColor: "#182231"}} className={classes.appBar}position="fixed">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="primary"
+            aria-label="menu"
+          ></IconButton>
+          <Typography variant="h4" className={classes.title}>
+            GrindHub 
+          </Typography>
+          <Button style={{marginLeft:"80%"}}
+            variant="contained"
+            component={Link}
+            to="/dashboard/:id"
+            className={classes.buttonColor}
+          >
+            Back
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <nav className={classes.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Hidden smUp implementation="css">
+          <Drawer
+          style={{backgroundColor:"#182231", color: "white"}}
+            container={container}
+            variant="temporary"
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+        <Hidden   xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            variant="permanent"
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Typography style={{maxWidth: "60%", margin: "5%"}} paragraph>
+          Dear Employee,
+          <br></br>
+          <br></br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+          donec massa sapien faucibus et molestie ac.
+        </Typography>
+        <Typography style={{maxWidth: "60%", margin: "5%"}}  paragraph>
+          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
+          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
+          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
+          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
+          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
+          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
+          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
+          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
+          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+        </Typography>
+      </main>
+    </div>
+  );
+}
+
+InboxComp.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  container: PropTypes.any,
+};
