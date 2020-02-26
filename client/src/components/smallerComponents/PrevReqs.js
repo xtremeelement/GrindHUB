@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import axios from "axios";
 
 //this shows previously requested days off
+//test comment
 
-export default function TimeOffReq() {
-  let [AllReqs, setAllReqs] = useState([]);
-  let [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get("/api/admin/daysOff").then(res => {
-      setAllReqs(res.data);
-      setLoading(false);
-    });
-  }, []);
-
+export default function TimeOffReq({ AllReqs, loading }) {
   if (loading) {
     return (
       <TableBody>
@@ -50,16 +40,6 @@ export default function TimeOffReq() {
                 <TableCell align="right">{request.emp_reason}</TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right">Denied</TableCell>
-              </TableRow>
-            );
-          } else {
-            return (
-              <TableRow key={request.user_id}>
-                <TableCell align="left">{name}</TableCell>
-                <TableCell align="right">{date}</TableCell>
-                <TableCell align="right">{request.emp_reason}</TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right">Pending Review</TableCell>
               </TableRow>
             );
           }

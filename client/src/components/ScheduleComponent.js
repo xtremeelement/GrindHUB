@@ -10,8 +10,19 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Sidebar from "./smallerComponents/Sidebar";
 import EmpSchedule from "./smallerComponents/EmpSchedule";
-
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Avatar from "@material-ui/core/Avatar";
+import { Schedule } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+//test comment
 const useStyles = makeStyles({
+  root: {
+    maxWidth: "100%",
+    margin: "0 auto",
+    marginBottom: "10px"
+  },
   table: {
     minWidth: 650
   },
@@ -22,10 +33,13 @@ const useStyles = makeStyles({
   },
   buttonMargin: {
     marginBottom: "25px"
+  },
+  avatar: {
+    backgroundColor: "#172231"
   }
 });
 
-export default function Schedule(props) {
+function ScheduleComponent(props) {
   const classes = useStyles();
 
   return (
@@ -35,23 +49,40 @@ export default function Schedule(props) {
         <Button component={Link} to="/dashboard" style={{ color: "white" }}>
           -Back
         </Button>
-        <TableContainer component={Paper}>
-          <Table
-            className={classes.table}
-            size="small"
-            aria-label="a dense table"
-          >
-            <TableHead>
-              <TableRow>
-                <TableCell align="left">Day</TableCell>
-                <TableCell align="right">Start Time</TableCell>
-                <TableCell align="right">End Time</TableCell>
-              </TableRow>
-            </TableHead>
-            <EmpSchedule id={props.match.params.id} />
-          </Table>
-        </TableContainer>
+        <Card className={classes.card}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="recipe" className={classes.avatar}>
+                <Schedule />
+              </Avatar>
+            }
+            title="Upcoming Shifts"
+          />
+          <CardContent>
+            <TableContainer component={Paper}>
+              <Table
+                className={classes.root}
+                size="small"
+                aria-label="a dense table"
+              >
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="left">Day</TableCell>
+                    <TableCell align="right">Start Time</TableCell>
+                    <TableCell align="right">End Time</TableCell>
+                  </TableRow>
+                </TableHead>
+                <EmpSchedule id={props.match.params.id} />
+              </Table>
+              <Typography variant="body2" color="textSecondary" component="p">
+                If there is a discrepancy with your schedule, please speak with
+                your leadership team.
+              </Typography>
+            </TableContainer>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
 }
+export default ScheduleComponent;

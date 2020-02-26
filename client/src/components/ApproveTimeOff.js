@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
@@ -11,7 +11,8 @@ import { Link } from "react-router-dom";
 import TimeOffReq from "./smallerComponents/TimeRows";
 import PrevReqs from "./smallerComponents/PrevReqs";
 import Adminside from "./smallerComponents/Adminside";
-
+import axios from "axios";
+//test comment
 const useStyles = makeStyles({
   table: {
     minWidth: 650
@@ -24,6 +25,22 @@ const useStyles = makeStyles({
 
 export default function AdminTimeOff() {
   const classes = useStyles();
+  let [reqData, setreqData] = useState([]);
+  let [loading, setLoading] = useState(true);
+
+  const reRender = () => {
+    axios.get("/api/admin/daysOff").then(res => {
+      setreqData(res.data);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    axios.get("/api/admin/daysOff").then(res => {
+      setreqData(res.data);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div>
@@ -61,7 +78,7 @@ export default function AdminTimeOff() {
                 </TableCell>
               </TableRow>
             </TableHead>
-            <TimeOffReq />
+            <TimeOffReq rerender={reRender} AllReqs={reqData} />
           </Table>
           <br />
           <br />
@@ -80,7 +97,7 @@ export default function AdminTimeOff() {
                 <TableCell align="right">Denied?</TableCell>
               </TableRow>
             </TableHead>
-            <PrevReqs />
+            <PrevReqs AllReqs={reqData} loading={loading} />
           </Table>
         </TableContainer>
       </div>

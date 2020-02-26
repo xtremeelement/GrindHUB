@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import Adminside from "./smallerComponents/Adminside";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import Avatar from '@material-ui/core/Avatar';
 
 //adds a new employee
 export default function CreateEmployee() {
@@ -73,19 +75,22 @@ export default function CreateEmployee() {
         style={{
           width: "60%",
           margin: "0 auto",
-          marginTop: "8%"
+          marginTop: "8%",
+          
         }}
       >
         <Button component={Link} to="/admin" style={{ color: "white" }}>
           -Back
         </Button>
-        <div style={{ backgroundColor: "white", padding: "25px" }}>
+        <div style={{ backgroundColor: "white", padding: "25px", borderRadius:"5px" }}>
           <React.Fragment>
             <Typography
-              style={{ textAlign: "center" }}
+              style={{ textAlign: "center", marginBottom: "3%" }}
               variant="h6"
               gutterBottom
             >
+              <Avatar style={{backgroundColor: "#182231"}}><PersonAddIcon/></Avatar>
+
               Employee Details
             </Typography>
             <Grid container spacing={3}>
@@ -168,9 +173,8 @@ export default function CreateEmployee() {
             </Grid>
           </React.Fragment>
           <Button
-            style={{ margin: "20px", marginLeft: "45%" }}
+            style={{ margin: "20px", marginLeft: "45%", backgroundColor: "#182231", color:"white" }}
             variant="contained"
-            color="primary"
             disableElevation
             onClick={handleSubmit}
           >

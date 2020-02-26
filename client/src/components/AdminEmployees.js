@@ -10,10 +10,16 @@ import EmpList from "./smallerComponents/EmpList";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Adminside from "./smallerComponents/Adminside";
+import CardHeader from '@material-ui/core/CardHeader';
+import Avatar from '@material-ui/core/Avatar';
+import GroupIcon from '@material-ui/icons/Group';
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650
+  },
+  avatar: {
+    backgroundColor: "#182231",
   }
 });
 
@@ -30,6 +36,16 @@ export default function DenseTable() {
           -Back
         </Button>
         <TableContainer component={Paper}>
+        <CardHeader style ={{marginBottom:"3%"}}
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+          <GroupIcon/>
+          </Avatar>
+        }
+
+        title="Employee Shortlist"
+        
+      />
           <Table
             className={classes.table}
             size="small"

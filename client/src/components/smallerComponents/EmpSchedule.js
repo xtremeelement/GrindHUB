@@ -1,11 +1,51 @@
-import React, { useEffect, useState } from "react";
-import TableBody from "@material-ui/core/TableBody";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+import { Schedule } from "@material-ui/icons";
 import axios from "axios";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: "100%",
+    margin: "0 auto",
+    marginBottom: "10px"
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%"
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest
+    })
+  },
+  expandOpen: {
+    transform: "rotate(180deg)"
+  },
+  avatar: {
+    backgroundColor: "#172231"
+  },
+  table: {
+    width: "100%"
+  }
+}));
 
 //the same function that creates an admin schedule, but instead for employees
 export default function EmpList({ id }) {
+  const classes = useStyles();
   let [schedule, setSchedule] = useState([]);
   let [loading, setLoading] = useState(true);
 
