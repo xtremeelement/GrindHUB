@@ -7,9 +7,9 @@ import TableCell from "@material-ui/core/TableCell";
 
 export default function PrevRequests({ requests }) {
   function handleStatus(status) {
-    if (status === true) {
+    if (status === 1) {
       return "Approved";
-    } else if (status === false) {
+    } else if (status === 0) {
       return "Denied";
     } else {
       return "Pending Review";

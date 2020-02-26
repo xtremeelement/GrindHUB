@@ -34,6 +34,19 @@ router.get("/findAllEmps", (req, res) => {
   });
 });
 
+router.get("/username/:id", (req, res) => {
+  console.log(req.params.id);
+  pool.query(
+    "SELECT first_name From Employee where userID=?",
+    req.params.id,
+    (err, result) => {
+      if (err) console.log(err);
+      res.send(result);
+      console.log(result);
+    }
+  );
+});
+
 router.post("/userauth", (req, res) => {
   console.log(req.body);
 
