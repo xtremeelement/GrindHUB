@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
       margin: "auto",
-      marginTop: "150px",
+      marginTop: "5%",
+      textAlign: "center",
       width: "60%"
     },
     paper: {
@@ -71,10 +72,10 @@ export default function EmpInfo({empID}) {
                   <TableBody>
                     {AllInfo.map(data => {
                       return (
-                          <div>
+                          <div style={{textAlign:"center", paddingLeft:"40%"}}>
                         <TableRow align="center">Name: {data.first_name}</TableRow>
                         <TableRow align="center">Last Name: {data.last_name} </TableRow>
-                        <TableRow align="center">Pay: {data.pay_rate} </TableRow>
+                        <TableRow align="center">Pay: ${data.pay_rate} </TableRow>
                         <TableRow align="center">Phone: {data.phone_number} </TableRow>
                         <TableRow align="center">Email: {data.email} </TableRow>
                         </div>

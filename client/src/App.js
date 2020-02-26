@@ -25,7 +25,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={SignInSide} />
           <Route path="/dashboard/:id" component={DashComponent} />
-
           <Route path="/schedule/:id" component={ScheduleComponent} />
           <Route path="/timeoff/:id" component={TimeOff} />
           <Route path="/signin/:id" component={SignInSide} />
@@ -35,7 +34,7 @@ function App() {
           <Route path="/contact/:id" component={UserProfile} />
           <Route exact path="/admin" component={AdminDash} />
           <Route path="/admin/schedule" component={AllEmployees} />
-          <Route path="/admin/announcements" component={AdminDash} />
+          <Route path="/admin/announcements" component={CreateNews} />
           <Route path="/admin/newemployee" component={CreateEmployee} />
           <Route path="/admin/timeoff" component={AdminTimeOff} />
           <Route path="/admin/createSchedule/:id" component={adminSchedule} />

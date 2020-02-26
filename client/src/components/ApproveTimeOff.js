@@ -12,10 +12,13 @@ import TimeOffReq from "./smallerComponents/TimeRows";
 import PrevReqs from "./smallerComponents/PrevReqs";
 import Adminside from "./smallerComponents/Adminside";
 import axios from "axios";
+import CardHeader from "@material-ui/core/CardHeader";
+import Avatar from "@material-ui/core/Avatar";
+import { Schedule, DoneAll } from "@material-ui/icons";
 //test comment
 const useStyles = makeStyles({
   table: {
-    minWidth: 650
+    minWidth: "30%"
   },
   header: {
     textAlign: "center",
@@ -46,20 +49,26 @@ export default function AdminTimeOff() {
     <div>
       <Adminside />
       <div style={{ width: "60%", margin: "10% auto" }}>
-        <h1 className={classes.header} style={{ color: "white" }}>
-          Employee Time-Off Requests
-        </h1>
+    
         <Button component={Link} to="/admin" style={{ color: "white" }}>
           -Back
         </Button>
         <TableContainer component={Paper}>
+        <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" style={{backgroundColor: "#172231"}}>
+            <Schedule />
+          </Avatar>
+        }
+        title="Pending Time Off Requests"
+      />
           <Table
             className={classes.table}
             size="small"
             aria-label="a dense table"
           >
+            
             <TableHead>
-              <h4>Requested Time Off</h4>
               <TableRow>
                 <TableCell>Employee</TableCell>
                 <TableCell align="right">Date Requested</TableCell>
@@ -82,13 +91,20 @@ export default function AdminTimeOff() {
           </Table>
           <br />
           <br />
+          <CardHeader
+        avatar={
+          <Avatar aria-label="request" style={{backgroundColor: "#172231"}}>
+            <DoneAll />
+          </Avatar>
+        }
+        title="Previous Time Off Requests"
+      />
           <Table
             className={classes.table}
             size="small"
             aria-label="a dense table"
           >
-            <TableHead>
-              <h4>Previous Requests</h4>
+            <TableHead >
               <TableRow>
                 <TableCell>Employee</TableCell>
                 <TableCell align="right">Date Requested</TableCell>
