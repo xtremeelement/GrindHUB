@@ -1,5 +1,5 @@
 //importing all of the necessary elements from the material UI package
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Adminside from "./smallerComponents/Adminside";
 import AdminSched from "./smallerComponents/AdminSched";
@@ -34,6 +34,12 @@ const useStyles = makeStyles(theme => ({
 export default function DashComponent(props) {
   const classes = useStyles();
 
+  useEffect(() => {
+    if (!localStorage.getItem("adminAuth")) {
+      localStorage.clear();
+      props.history.push("/");
+    }
+  });
   return (
     <div>
       <Adminside id={props.match.params.id} />

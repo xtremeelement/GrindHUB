@@ -3,7 +3,13 @@ import React from "react";
 import ScheduleComponent from "./components/ScheduleComponent";
 
 import TimeOff from "./components/TimeOffComponent";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  useHistory
+} from "react-router-dom";
 import UserProfile from "./components/UserProfileComponent";
 import NewsAlerts from "./components/NewsComponent";
 import Documents from "./components/DocsComponent";
@@ -25,7 +31,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={SignInSide} />
           <Route path="/dashboard/:id" component={DashComponent} />
-
           <Route path="/schedule/:id" component={ScheduleComponent} />
           <Route path="/timeoff/:id" component={TimeOff} />
           <Route path="/signin/:id" component={SignInSide} />
