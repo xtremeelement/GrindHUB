@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -11,6 +11,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
+import axios from "axios";
 
 import {
   AccessTime,
@@ -74,10 +75,18 @@ const useStyles = makeStyles(theme => ({
 export default function Sidebar(props) {
   const classes = useStyles();
   let id = props.id;
+  let [userName, setuserName] = useState("");
 
   const handleLogout = () => {
     localStorage.clear();
   };
+
+  useEffect(() => {
+    axios.get(`/api/username/${id}`).then(res => {
+      setuserName(res.data[0].first_name);
+      console.log(res.data[0].first_name);
+    });
+  }, []);
 
   const linkHandler = text => {
     if (text === "Home") {
@@ -164,9 +173,11 @@ export default function Sidebar(props) {
           >
             <Settings className={classes.menuButton} />
           </IconButton>
+
           <Typography variant="h4" className={classes.title}>
             GrindHub
           </Typography>
+
           <Button
             variant="contained"
             component={Link}
@@ -187,7 +198,9 @@ export default function Sidebar(props) {
         anchor="left"
       >
         <div className={classes.toolbar} />
+        <h4 style={{ color: "white" }}>Welcome {userName}!</h4>
         <Divider />
+
         <List className={classes.listmargin}>
           {[
             "Home",
@@ -210,6 +223,7 @@ export default function Sidebar(props) {
             </ListItem>
           ))}
         </List>
+
         <Divider />
       </Drawer>
     </div>

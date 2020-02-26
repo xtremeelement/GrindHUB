@@ -2,13 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import Sidebar from "./smallerComponents/Sidebar";
+import Adminside from "./smallerComponents/Adminside";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +36,7 @@ export default function CreateNews() {
 
   return (
     <div>
-      <Sidebar />
+      <Adminside />
       <div className={classes.tableWidth}>
         <Button component={Link} to="/dashboard" style={{ color: "white" }}>
           -Back
@@ -52,34 +51,69 @@ export default function CreateNews() {
             title="Create Announcement"
           />
           <CardContent>
-          <div className="News" style={{backgroundColor: "white", width: "60%", margin: "0 auto", textAlign: "center"}}>
-<form style={{borderRadius: "5px"}} method="post" action="/api/NewPost">
-<div style={{margin: "20px"}}>
-<label style={{margin: "20px", fontFamily: "Roboto", fontSize: "20px"}}for="fname">Title:</label>
-<input style={{margin: "20px"}}type="text" id="title" name="title"/>
-</div>
+            <div
+              className="News"
+              style={{
+                backgroundColor: "white",
+                width: "60%",
+                margin: "0 auto",
+                textAlign: "center"
+              }}
+            >
+              <form
+                style={{ borderRadius: "5px" }}
+                method="post"
+                action="/api/NewPost"
+              >
+                <div style={{ margin: "20px" }}>
+                  <label
+                    style={{
+                      margin: "20px",
+                      fontFamily: "Roboto",
+                      fontSize: "20px"
+                    }}
+                    for="fname"
+                  >
+                    Title:
+                  </label>
+                  <input
+                    style={{ margin: "20px" }}
+                    type="text"
+                    id="title"
+                    name="title"
+                  />
+                </div>
 
-    <textarea name="message" style={{width:"80%", height:"70%",  fontSize: "20px", fontFamily: "Roboto", borderRadius:"5%"}}>
-        Your announcement here...
-    </textarea>
-        <div>
-        <Button
-            style={{ margin: "20px", backgroundColor: "#182231", color:"white" }}
-            variant="contained"
-            disableElevation
-          >
-            Submit
-          </Button>
-    </div>
-</form>
-
-</div>
-    
+                <textarea
+                  name="message"
+                  style={{
+                    width: "80%",
+                    height: "70%",
+                    fontSize: "20px",
+                    fontFamily: "Roboto",
+                    borderRadius: "5%"
+                  }}
+                >
+                  Your announcement here...
+                </textarea>
+                <div>
+                  <Button
+                    style={{
+                      margin: "20px",
+                      backgroundColor: "#182231",
+                      color: "white"
+                    }}
+                    variant="contained"
+                    disableElevation
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </form>
+            </div>
           </CardContent>
         </Card>
       </div>
     </div>
   );
 }
-
-
