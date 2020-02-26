@@ -49,3 +49,6 @@ Ideas for Future Development?
 
 Planning:
 ![WireFrame](https://i.imgur.com/r8oBFxF.png)
+
+Deployment:
+![WireFrame](https://i.imgur.com/N6pMLxX.png)
