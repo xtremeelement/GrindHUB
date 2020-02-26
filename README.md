@@ -27,7 +27,7 @@ Technologies and Packages Used:
 Responsibilities
 
 Brandon: Back-End, and some front-end, too.
-Taylor: Only the front-end and some DB stuff.
+Taylor: Front-end and some DB stuff.
 
 
 Challenges:
