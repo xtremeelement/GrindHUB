@@ -6,6 +6,9 @@ Deployed Heroku App: https://glacial-chamber-59045.herokuapp.com/
 
 Github Repo: https://github.com/tcorn94/Final-Project
 
+Deployment:
+![WireFrame](https://i.imgur.com/N6pMLxX.png)
+
 
 What is GrindHub?
 -An employee portal application that allows for seamless and convenient
@@ -50,5 +53,4 @@ Ideas for Future Development?
 Planning:
 ![WireFrame](https://i.imgur.com/r8oBFxF.png)
 
-Deployment:
-![WireFrame](https://i.imgur.com/N6pMLxX.png)
+
